@@ -17,5 +17,9 @@ Player: Quizás debería cargármelo
 	if has_tv_object:
 		Player: No ha sido la idea más elegante...
 		Player: Pero quizás este cristal me sirva.
+		set break_tv = true
+	else:
+		Player: Si tuviera algo para romperlo... 
 - Mejor no
+	Player: Me podría hacer daño.
 => END
