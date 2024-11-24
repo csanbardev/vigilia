@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+States="*res://Scripts/states.gd"
+
+[dialogue_manager]
+
+general/states=["States"]
 
 [editor_plugins]
 
