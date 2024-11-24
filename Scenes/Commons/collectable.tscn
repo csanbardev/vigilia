@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/collectable.gd" id="1_l08gr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_whcxa"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iw145"]
+radius = 23.0
+height = 82.0
 
 [node name="Collectable" type="Node2D"]
 script = ExtResource("1_l08gr")
@@ -12,7 +14,7 @@ script = ExtResource("1_l08gr")
 [node name="CollectableArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableArea"]
-shape = SubResource("RectangleShape2D_whcxa")
+shape = SubResource("CapsuleShape2D_iw145")
 
 [connection signal="body_entered" from="CollectableArea" to="." method="_on_collectable_area_body_entered"]
 [connection signal="body_exited" from="CollectableArea" to="." method="_on_collectable_area_body_exited"]
