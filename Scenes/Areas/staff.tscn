@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://ct063oknl1w3i"]
+[gd_scene load_steps=27 format=4 uid="uid://ct063oknl1w3i"]
 
 [ext_resource type="Texture2D" uid="uid://lh1l1t7vx5wt" path="res://Assets/Builder/walls.png" id="1_5frbe"]
 [ext_resource type="Script" path="res://Scripts/Commons/level.gd" id="1_30pmx"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://dv0mxhaefhs5b" path="res://Scenes/Objects/broken_mirror.tscn" id="10_m6ssp"]
 [ext_resource type="Texture2D" uid="uid://cdr14tmlvp02f" path="res://Assets/Puzzles/Noise 4.png" id="11_613yk"]
 [ext_resource type="Script" path="res://Scripts/Areas/fog.gd" id="12_83eyi"]
+[ext_resource type="PackedScene" uid="uid://bvsibqww786gb" path="res://Scenes/Commons/collectable.tscn" id="14_g8pdb"]
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="15_isflv"]
+[ext_resource type="Texture2D" uid="uid://wlpqgg6lvpvs" path="res://Assets/Puzzles/plunger.png" id="16_k1i7i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sxrfv"]
 texture = ExtResource("1_5frbe")
@@ -2844,6 +2847,11 @@ physics_layer_0/collision_layer = 4
 sources/0 = SubResource("TileSetAtlasSource_2txvp")
 sources/1 = SubResource("TileSetAtlasSource_ucwv1")
 
+[sub_resource type="Resource" id="Resource_hpaty"]
+script = ExtResource("15_isflv")
+name = "Plunger"
+texture = ExtResource("16_k1i7i")
+
 [node name="Staff" type="Node2D" node_paths=PackedStringArray("player_initial_position_marker2D")]
 position = Vector2(1, 1)
 script = ExtResource("1_30pmx")
@@ -2933,3 +2941,8 @@ z_index = 130
 position = Vector2(668, 28)
 texture = ExtResource("11_613yk")
 script = ExtResource("12_83eyi")
+
+[node name="Collectable" parent="." instance=ExtResource("14_g8pdb")]
+z_index = 30
+position = Vector2(1265, -132)
+item = SubResource("Resource_hpaty")
