@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvsibqww786gb"]
+
+[ext_resource type="Script" path="res://Scripts/collectable.gd" id="1_l08gr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whcxa"]
+
+[node name="Collectable" type="Node2D"]
+script = ExtResource("1_l08gr")
+
+[node name="CollectableSprite" type="Sprite2D" parent="."]
+
+[node name="CollectableArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableArea"]
+shape = SubResource("RectangleShape2D_whcxa")
+
+[connection signal="body_entered" from="CollectableArea" to="." method="_on_collectable_area_body_entered"]
+[connection signal="body_exited" from="CollectableArea" to="." method="_on_collectable_area_body_exited"]

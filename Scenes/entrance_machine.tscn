@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://kbervirxfmvx"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/entrance_machine.gd" id="1_c64ny"]
+[ext_resource type="Texture2D" uid="uid://brrr3mdwltfju" path="res://Assets/Museum/Objects/Museum_Singles_48x48_25.png" id="2_hn77f"]
+[ext_resource type="Texture2D" uid="uid://bl6kq5jcsx7xh" path="res://Assets/Museum/Objects/Museum_Singles_48x48_26.png" id="3_0nqc4"]
+[ext_resource type="PackedScene" uid="uid://brk3g5jcynxnb" path="res://Scenes/Commons/tip.tscn" id="4_fpt12"]
+[ext_resource type="Resource" uid="uid://b55kur4jnmwp6" path="res://Dialogues/tips.dialogue" id="5_wjwoq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0jbe"]
+size = Vector2(78, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yhnot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hn77f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0nqc4")
+}],
+"loop": false,
+"name": &"Toggle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvww2"]
+size = Vector2(79, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx3ku"]
+size = Vector2(60, 59)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wd1r4"]
+radius = 36.0139
+
+[node name="EntranceMachine" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_c64ny")
+
+[node name="MachineCollision1" type="CollisionShape2D" parent="."]
+position = Vector2(0, -56.5)
+shape = SubResource("RectangleShape2D_h0jbe")
+
+[node name="MachineCollision2" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 48)
+shape = SubResource("RectangleShape2D_h0jbe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yhnot")
+animation = &"Toggle"
+metadata/_edit_lock_ = true
+
+[node name="PathBlockedDetection" type="Area2D" parent="."]
+position = Vector2(-1.5, 3)
+collision_layer = 2
+collision_mask = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathBlockedDetection"]
+position = Vector2(3, -0.5)
+shape = SubResource("RectangleShape2D_bvww2")
+
+[node name="PathBlockedCollision" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2.5)
+shape = SubResource("RectangleShape2D_vx3ku")
+
+[node name="EntranceMachineTip" parent="." instance=ExtResource("4_fpt12")]
+collision_layer = 4
+dialogue_resource = ExtResource("5_wjwoq")
+dialogue_start = "access_card"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntranceMachineTip"]
+position = Vector2(-9, -1)
+shape = SubResource("CircleShape2D_wd1r4")
+
+[connection signal="body_entered" from="PathBlockedDetection" to="." method="_on_path_blocked_collision_body_entered"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://osvpu1jap7kp"]
+
+[ext_resource type="PackedScene" uid="uid://2v68vo1m4tiy" path="res://Scenes/UI/slot.tscn" id="1_7lkxk"]
+[ext_resource type="Script" path="res://Scripts/collecteditems.gd" id="1_xtu5y"]
+
+[node name="CollectedItems" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+script = ExtResource("1_xtu5y")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SlotsContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -78.0
+offset_right = 130.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="Slot" parent="CanvasLayer/SlotsContainer" instance=ExtResource("1_7lkxk")]
+layout_mode = 2
+
+[node name="Slot2" parent="CanvasLayer/SlotsContainer" instance=ExtResource("1_7lkxk")]
+layout_mode = 2
+
+[node name="Slot3" parent="CanvasLayer/SlotsContainer" instance=ExtResource("1_7lkxk")]
+layout_mode = 2
+
+[node name="Slot4" parent="CanvasLayer/SlotsContainer" instance=ExtResource("1_7lkxk")]
+layout_mode = 2
+
+[node name="Slot5" parent="CanvasLayer/SlotsContainer" instance=ExtResource("1_7lkxk")]
+layout_mode = 2
+
+[node name="Slot6" parent="CanvasLayer/SlotsContainer" instance=ExtResource("1_7lkxk")]
+layout_mode = 2

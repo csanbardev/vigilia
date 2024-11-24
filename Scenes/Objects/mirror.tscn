@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbbomb8f2rofr"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/mirror.gd" id="1_dqfos"]
+[ext_resource type="Texture2D" uid="uid://bwr56ye8e1iy6" path="res://Assets/Puzzles/Mirror.png" id="2_5g3nv"]
+[ext_resource type="Texture2D" uid="uid://ctenyubvclb8w" path="res://Assets/Puzzles/mirror_left_half.png" id="3_kngna"]
+[ext_resource type="Texture2D" uid="uid://47u3iojddcg4" path="res://Assets/Puzzles/mirror_left_full.png" id="4_fbto4"]
+[ext_resource type="Texture2D" uid="uid://bex11oc72suhu" path="res://Assets/Puzzles/mirror_right_half.png" id="5_leq25"]
+[ext_resource type="Texture2D" uid="uid://ysfshldx3lgx" path="res://Assets/Puzzles/mirror_right_full.png" id="6_dd5ui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_haayx"]
+size = Vector2(43, 149)
+
+[node name="Mirror" type="StaticBody2D"]
+script = ExtResource("1_dqfos")
+
+[node name="MirrorArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MirrorArea2D"]
+position = Vector2(0.5, 64.5)
+shape = SubResource("RectangleShape2D_haayx")
+
+[node name="MirrorLeftHalfSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_kngna")
+
+[node name="MirrorLeftFullSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_fbto4")
+
+[node name="MirrorRightHalfSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_leq25")
+
+[node name="MirrorRightFullSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_dd5ui")
+
+[node name="MirrorSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_5g3nv")
+
+[node name="Sprites" type="Node" parent="."]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://pkxxc5n40cve"]
+
+[ext_resource type="Script" path="res://Scripts/Item.gd" id="1_ctcjd"]
+[ext_resource type="Texture2D" uid="uid://d1wkqgyy83b0y" path="res://Assets/Museum/Items/Living_Room_Singles_48x48_75.png" id="2_hsk6c"]
+
+[resource]
+script = ExtResource("1_ctcjd")
+name = "Lamp"
+texture = ExtResource("2_hsk6c")

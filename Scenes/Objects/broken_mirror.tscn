@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dv0mxhaefhs5b"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/broken_mirror.gd" id="1_dvvsr"]
+[ext_resource type="Texture2D" uid="uid://cjxwmca1pepeu" path="res://Assets/Puzzles/Broken_Mirror.png" id="2_t5f2p"]
+[ext_resource type="Texture2D" uid="uid://bwr56ye8e1iy6" path="res://Assets/Puzzles/Mirror.png" id="3_njxup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcc2e"]
+size = Vector2(41, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_haayx"]
+size = Vector2(43, 149)
+
+[node name="BrokenMirror" type="StaticBody2D"]
+script = ExtResource("1_dvvsr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 8)
+shape = SubResource("RectangleShape2D_pcc2e")
+
+[node name="BrokenMirrorArea2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrokenMirrorArea2D"]
+position = Vector2(0.5, 64.5)
+shape = SubResource("RectangleShape2D_haayx")
+
+[node name="BrokenSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_t5f2p")
+
+[node name="FixedSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_njxup")
+
+[connection signal="body_entered" from="BrokenMirrorArea2D" to="." method="_on_broken_mirror_area_2d_body_entered"]
+[connection signal="body_exited" from="BrokenMirrorArea2D" to="." method="_on_broken_mirror_area_2d_body_exited"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://ceawfx716cp7e"]
+
+[ext_resource type="Texture2D" uid="uid://cimlskvuxam2c" path="res://Assets/Museum/Objects/Classroom_and_Library_Singles_48x48_40.png" id="1_tncnt"]
+[ext_resource type="Script" path="res://Scripts/Objects/locker.gd" id="1_xek5o"]
+[ext_resource type="PackedScene" uid="uid://brk3g5jcynxnb" path="res://Scenes/Commons/tip.tscn" id="3_wc1ow"]
+[ext_resource type="Resource" uid="uid://ggffysugw37v" path="res://Dialogues/lockers.dialogue" id="4_ii0rf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf02v"]
+size = Vector2(41, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6y31v"]
+size = Vector2(41, 90)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tb1n5"]
+radius = 20.0
+
+[node name="Locker" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_xek5o")
+
+[node name="LockerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_tncnt")
+
+[node name="LockerArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockerArea2D"]
+position = Vector2(-1.5, 61)
+shape = SubResource("RectangleShape2D_nf02v")
+
+[node name="LockerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 2)
+shape = SubResource("RectangleShape2D_6y31v")
+
+[node name="Tip" parent="." instance=ExtResource("3_wc1ow")]
+position = Vector2(-9, 21)
+dialogue_resource = ExtResource("4_ii0rf")
+dialogue_start = "open_locker"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
+position = Vector2(6, 24)
+shape = SubResource("CircleShape2D_tb1n5")
+
+[connection signal="body_entered" from="LockerArea2D" to="." method="_on_locker_area_2d_body_entered"]
+[connection signal="body_exited" from="LockerArea2D" to="." method="_on_locker_area_2d_body_exited"]

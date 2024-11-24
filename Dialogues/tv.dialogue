@@ -1,0 +1,18 @@
+~ tv_start
+Player: Qué pinta un televisor aquí.
+Player: ¿Debería apagarlo?.
+- Apagar
+	=> tv_not_off
+- Dejarlo => END
+=> END
+
+~ tv_not_off
+Player: Pues... no se apaga. Qué raro.
+=> END
+
+~ tv_new_start
+Player: No veo que haya cambiado nada.
+Player: Quizás debería cargármelo
+- Romper
+- Mejor no
+=> END

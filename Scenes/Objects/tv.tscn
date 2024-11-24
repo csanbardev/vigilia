@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://bdoi0gcxvsmjj"]
+
+[ext_resource type="Texture2D" uid="uid://66viaivflrdt" path="res://Assets/Puzzles/TV.png" id="1_arxo2"]
+[ext_resource type="Script" path="res://Scripts/Objects/tv.gd" id="1_ctvns"]
+[ext_resource type="PackedScene" uid="uid://brk3g5jcynxnb" path="res://Scenes/Commons/tip.tscn" id="2_5vmwr"]
+[ext_resource type="Resource" uid="uid://codq2u6o5gwxa" path="res://Dialogues/tv.dialogue" id="3_x0kni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7fa7"]
+size = Vector2(58, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yesuy"]
+atlas = ExtResource("1_arxo2")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_johlx"]
+atlas = ExtResource("1_arxo2")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji2oo"]
+atlas = ExtResource("1_arxo2")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxuk4"]
+atlas = ExtResource("1_arxo2")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq5gp"]
+atlas = ExtResource("1_arxo2")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvaxh"]
+atlas = ExtResource("1_arxo2")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qaaw3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yesuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_johlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji2oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxuk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq5gp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvaxh")
+}],
+"loop": true,
+"name": &"On",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ccpvu"]
+radius = 26.1725
+
+[node name="TV" type="StaticBody2D"]
+script = ExtResource("1_ctvns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 8)
+shape = SubResource("RectangleShape2D_j7fa7")
+
+[node name="TVAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qaaw3")
+animation = &"On"
+autoplay = "On"
+frame_progress = 0.60021
+
+[node name="TVDialogue" parent="." instance=ExtResource("2_5vmwr")]
+position = Vector2(-2, 20)
+dialogue_resource = ExtResource("3_x0kni")
+dialogue_start = "tv_start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TVDialogue"]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_ccpvu")

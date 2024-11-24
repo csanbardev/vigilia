@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://mp8vas13wcda"]
+
+[ext_resource type="Script" path="res://Scripts/Commons/level_transporter.gd" id="1_u00qq"]
+
+[node name="LevelTransporter" type="Area2D"]
+script = ExtResource("1_u00qq")
+new_level_name = "hub"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

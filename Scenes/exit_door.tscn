@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://dcxngs83vb6mt"]
+
+[ext_resource type="Texture2D" uid="uid://cbb1bkpr4tidf" path="res://Assets/Museum/Objects/animated_door_glass_double_48x48.png" id="1_wdxoy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdqll"]
+size = Vector2(93, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2t0c"]
+atlas = ExtResource("1_wdxoy")
+region = Rect2(0, 0, 95, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnxmu"]
+atlas = ExtResource("1_wdxoy")
+region = Rect2(96, 0, 95, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1qow"]
+atlas = ExtResource("1_wdxoy")
+region = Rect2(192, 0, 95, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_filon"]
+atlas = ExtResource("1_wdxoy")
+region = Rect2(288, 0, 95, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdqdt"]
+atlas = ExtResource("1_wdxoy")
+region = Rect2(384, 0, 95, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxfw4"]
+atlas = ExtResource("1_wdxoy")
+region = Rect2(480, 0, 95, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm3gp"]
+atlas = ExtResource("1_wdxoy")
+region = Rect2(576, 0, 95, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6hfm"]
+atlas = ExtResource("1_wdxoy")
+region = Rect2(672, 0, 95, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ce7g4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2t0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnxmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1qow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_filon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdqdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxfw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm3gp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6hfm")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[node name="ExitDoor" type="StaticBody2D"]
+collision_layer = 4
+
+[node name="ExitDoorCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 30)
+shape = SubResource("RectangleShape2D_tdqll")
+
+[node name="ExitDoorAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ce7g4")
+animation = &"Open"
