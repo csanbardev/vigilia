@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://kjb1u5buoeyy"]
+
+[ext_resource type="Script" path="res://Scripts/Commons/event_controller.gd" id="1_6clxl"]
+
+[node name="EventController" type="Area2D"]
+script = ExtResource("1_6clxl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
