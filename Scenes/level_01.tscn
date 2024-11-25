@@ -18,7 +18,6 @@ z_index = 100
 position = Vector2(-293, -139)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0295066, 0.0295066, 0.0295066, 1)
 script = ExtResource("3_h3hw8")
 
