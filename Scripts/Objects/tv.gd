@@ -35,11 +35,19 @@ func check_item() -> bool:
 
 func finish_tv_puzzle() -> void:
 	var collectedItems = get_tree().current_scene.get_node("Player").get_node("CollectedItems")
-	# add crystal item 
+	var crystal_item = load("res://Resources/crystal.tres")
+	
 	item_added = true
 	stop_tv()
 	# remove tv dialogue
 	tv_dialogue.queue_free()
+	
+	# remove Plunger
+	collectedItems.remove_item("Plunger")
+	
+	# add crystal item
+	collectedItems.add_item(crystal_item)
+	
 	
 func stop_tv() -> void:
 	$TVStaticSound.stop()
