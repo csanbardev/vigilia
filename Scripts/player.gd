@@ -1,7 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 300.0
+const SPEED = 150.0
+const ACCELERATION_SMOOTHING = 25
 
 var light_distance := 75.0
 
@@ -35,9 +36,9 @@ func _physics_process(delta: float) -> void:
 	# Normalizar el vector de entrada para que la velocidad sea constante en diagonal
 	if input_vector.length() > 0:
 		input_vector = input_vector.normalized()
-
+	var target_velocity = input_vector * SPEED
 	# Actualizar la velocidad en base al vector de entrada y la velocidad configurada
-	velocity = input_vector * SPEED
+	velocity = velocity.lerp(target_velocity, 1 - exp(-delta * ACCELERATION_SMOOTHING))
 	
 	# Cambiar animaciones basadas en la entrada
 	if input_vector.length() > 0:  # Si hay movimiento
