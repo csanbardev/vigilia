@@ -17,11 +17,13 @@ func _process(delta: float) -> void:
 func _on_tv_start_activate(event_name: String):
 	if event_name == "tv":
 		$TVDialogue.dialogue_start = "tv_new_start"
+		
 	
 
 func start_tv_puzzle(event_name: String) -> void:
 	if event_name == "tv":
 		$TVAnimation.play("On")
+		$TVStaticSound.play()
 
 func finish_tv_puzzle() -> void:
 	var collectedItems = get_tree().current_scene.get_node("Player").get_node("CollectedItems")

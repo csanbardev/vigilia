@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbr3velmeaud7"]
+[gd_scene load_steps=17 format=3 uid="uid://bbr3velmeaud7"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/bath_door.gd" id="1_h0jdb"]
 [ext_resource type="Texture2D" uid="uid://bydbxjo5wq0eo" path="res://Assets/Museum/Objects/animated_door_bathroom_48x48.png" id="2_84rmn"]
+[ext_resource type="AudioStream" uid="uid://dvxjoenutp7ai" path="res://Assets/Sounds/Car_door_shutting.ogg" id="3_jetkv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knfw7"]
 size = Vector2(48, 84)
@@ -109,6 +110,9 @@ shape = SubResource("RectangleShape2D_rixe7")
 [node name="BathDoorAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mw7ld")
 animation = &"Open"
+
+[node name="CloseDoorSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jetkv")
 
 [connection signal="body_entered" from="BathDoorArea" to="." method="_on_bath_door_area_body_entered"]
 [connection signal="body_exited" from="BathDoorArea" to="." method="_on_bath_door_area_body_exited"]

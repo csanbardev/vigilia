@@ -22,7 +22,7 @@ func _close_door(event_name: String) -> void:
 		$BathDoorAnimation.play("Close")
 		await get_tree().create_timer(0.01).timeout
 		$BathDoorCollision.disabled = false
-
+		$CloseDoorSound.play()
 func _on_bath_door_area_body_entered(body: Node2D) -> void:
 	player_on_area = true
 

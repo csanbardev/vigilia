@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bdoi0gcxvsmjj"]
+[gd_scene load_steps=15 format=3 uid="uid://bdoi0gcxvsmjj"]
 
 [ext_resource type="Texture2D" uid="uid://66viaivflrdt" path="res://Assets/Puzzles/TV.png" id="1_arxo2"]
 [ext_resource type="Script" path="res://Scripts/Objects/tv.gd" id="1_ctvns"]
 [ext_resource type="PackedScene" uid="uid://brk3g5jcynxnb" path="res://Scenes/Commons/tip.tscn" id="2_5vmwr"]
 [ext_resource type="Resource" uid="uid://codq2u6o5gwxa" path="res://Dialogues/tv.dialogue" id="3_x0kni"]
+[ext_resource type="AudioStream" uid="uid://dxxmf8qhtt8yj" path="res://Assets/Sounds/Static_gritty.ogg" id="5_rpqi2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7fa7"]
 size = Vector2(58, 64)
@@ -81,3 +82,6 @@ dialogue_start = "tv_start"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TVDialogue"]
 position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_ccpvu")
+
+[node name="TVStaticSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_rpqi2")
