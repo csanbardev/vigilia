@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_gvhx6"]
 [ext_resource type="Script" path="res://Scripts/canvas_modulate.gd" id="3_h3hw8"]
 [ext_resource type="Script" path="res://Scripts/Commons/level_manager.gd" id="5_8a202"]
-[ext_resource type="PackedScene" uid="uid://ct063oknl1w3i" path="res://Scenes/Areas/staff.tscn" id="5_yn0gx"]
+[ext_resource type="PackedScene" uid="uid://du7136rtorqc8" path="res://Scenes/Areas/corridor.tscn" id="5_dh7xq"]
 
 [node name="Level01" type="Node2D"]
 
@@ -25,4 +25,4 @@ script = ExtResource("3_h3hw8")
 script = ExtResource("5_8a202")
 player = NodePath("../Player")
 
-[node name="Staff" parent="LevelManager" instance=ExtResource("5_yn0gx")]
+[node name="Corridor" parent="LevelManager" instance=ExtResource("5_dh7xq")]
