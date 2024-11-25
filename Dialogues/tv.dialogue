@@ -14,6 +14,7 @@ Player: Pues... no se apaga. Qué raro.
 Player: No veo que haya cambiado nada.
 Player: Quizás debería cargármelo
 - Romper
+	
 	if has_tv_object:
 		Player: No ha sido la idea más elegante...
 		Player: Pero quizás este cristal me sirva.

@@ -3,6 +3,7 @@ extends StaticBody2D
 var tv_dialogue
 var item_added:bool = false
 @export var event_controller: Area2D
+signal tv_off
 
 func _ready():
 	tv_dialogue = $TVDialogue
@@ -10,26 +11,36 @@ func _ready():
 	event_controller.connect("custom_event", Callable(self, "start_tv_puzzle"))
 
 func _process(delta: float) -> void:
-	# check if tv was broken and finish puzzle
-	if States.break_tv and !item_added:
-		finish_tv_puzzle()
+	if !item_added:
+		if check_item():
+			States.has_tv_object = true
+		if States.break_tv:
+			finish_tv_puzzle()
 
-func _on_tv_start_activate(event_name: String):
-	if event_name == "tv":
-		$TVDialogue.dialogue_start = "tv_new_start"
-		
+func _on_tv_start_activate():
+	$TVDialogue.dialogue_start = "tv_new_start"
 	
 
 func start_tv_puzzle(event_name: String) -> void:
 	if event_name == "tv":
 		$TVAnimation.play("On")
 		$TVStaticSound.play()
+func check_item() -> bool:
+	var collectedItems = get_tree().current_scene.get_node("Player").get_node("CollectedItems")
+	
+	if collectedItems.contains_item("Plunger"):
+		return true
+	return false
+	
 
 func finish_tv_puzzle() -> void:
 	var collectedItems = get_tree().current_scene.get_node("Player").get_node("CollectedItems")
 	# add crystal item 
-	var crystal_item: Item = load("res://Resources/lamp.tres")
-	collectedItems.add_item(crystal_item)
 	item_added = true
+	stop_tv()
 	# remove tv dialogue
-	$TVDialogue.queue_free()
+	tv_dialogue.queue_free()
+	
+func stop_tv() -> void:
+	$TVStaticSound.stop()
+	emit_signal("tv_off")

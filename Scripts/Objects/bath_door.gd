@@ -3,10 +3,12 @@ extends StaticBody2D
 var player_on_area:bool = false
 var is_open:bool = false
 @export var event_controller: Area2D
+@export var tv: StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	event_controller.connect("custom_event", Callable(self, "_close_door"))
+	tv.connect("tv_off", Callable(self, "_open_door"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,12 +19,17 @@ func _process(delta: float) -> void:
 		$BathDoorArea/CollisionShape2D.disabled = false
 		is_open = true
 
+func _open_door() -> void:
+	$BathDoorAnimation.play("Open")
+	$BathDoorCollision.disabled = true
+
 func _close_door(event_name: String) -> void:
 	if event_name == "tv":
 		$BathDoorAnimation.play("Close")
 		await get_tree().create_timer(0.01).timeout
 		$BathDoorCollision.disabled = false
 		$CloseDoorSound.play()
+		
 func _on_bath_door_area_body_entered(body: Node2D) -> void:
 	player_on_area = true
 

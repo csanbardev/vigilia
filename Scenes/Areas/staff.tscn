@@ -2904,10 +2904,11 @@ number = 2
 position = Vector2(1102, -148)
 number = 3
 
-[node name="BathDoor" parent="." node_paths=PackedStringArray("event_controller") instance=ExtResource("4_bitdd")]
+[node name="BathDoor" parent="." node_paths=PackedStringArray("event_controller", "tv") instance=ExtResource("4_bitdd")]
 z_index = 30
 position = Vector2(1318, 71)
 event_controller = NodePath("../EventController")
+tv = NodePath("../TV")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1311, 178)
