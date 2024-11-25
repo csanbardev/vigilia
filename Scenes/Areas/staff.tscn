@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://ct063oknl1w3i"]
+[gd_scene load_steps=34 format=4 uid="uid://ct063oknl1w3i"]
 
 [ext_resource type="Texture2D" uid="uid://lh1l1t7vx5wt" path="res://Assets/Builder/walls.png" id="1_5frbe"]
 [ext_resource type="Script" path="res://Scripts/Commons/level.gd" id="1_30pmx"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://wlpqgg6lvpvs" path="res://Assets/Puzzles/plunger.png" id="16_k1i7i"]
 [ext_resource type="Texture2D" uid="uid://cghwstdf1oli4" path="res://Assets/Museum/Objects/washing_machine.png" id="17_bn71m"]
 [ext_resource type="PackedScene" uid="uid://kjb1u5buoeyy" path="res://Scenes/Commons/event_controller.tscn" id="18_s1c0k"]
+[ext_resource type="PackedScene" uid="uid://mp8vas13wcda" path="res://Scenes/Commons/level_transporter.tscn" id="19_kts8a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jinnf"]
 texture = ExtResource("2_a2456")
@@ -3297,6 +3298,9 @@ texture = ExtResource("16_k1i7i")
 [sub_resource type="CircleShape2D" id="CircleShape2D_h7h5j"]
 radius = 28.0179
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rubmt"]
+size = Vector2(25, 93)
+
 [node name="Staff" type="Node2D" node_paths=PackedStringArray("player_initial_position_marker2D")]
 position = Vector2(1, 1)
 script = ExtResource("1_30pmx")
@@ -3356,7 +3360,7 @@ event_controller = NodePath("../EventController")
 tv = NodePath("../TV")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1311, 178)
+position = Vector2(58, 195)
 
 [node name="Lockers" type="Node" parent="."]
 
@@ -3418,3 +3422,10 @@ delete_after = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EventController"]
 z_index = 1
 shape = SubResource("CircleShape2D_h7h5j")
+
+[node name="LevelTransporter" parent="." instance=ExtResource("19_kts8a")]
+position = Vector2(5, 165)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransporter"]
+position = Vector2(2.5, 23.5)
+shape = SubResource("RectangleShape2D_rubmt")
