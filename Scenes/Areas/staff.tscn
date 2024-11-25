@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://ct063oknl1w3i"]
+[gd_scene load_steps=30 format=4 uid="uid://ct063oknl1w3i"]
 
 [ext_resource type="Texture2D" uid="uid://lh1l1t7vx5wt" path="res://Assets/Builder/walls.png" id="1_5frbe"]
 [ext_resource type="Script" path="res://Scripts/Commons/level.gd" id="1_30pmx"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Scripts/Item.gd" id="15_isflv"]
 [ext_resource type="Texture2D" uid="uid://wlpqgg6lvpvs" path="res://Assets/Puzzles/plunger.png" id="16_k1i7i"]
 [ext_resource type="Texture2D" uid="uid://cghwstdf1oli4" path="res://Assets/Museum/Objects/washing_machine.png" id="17_bn71m"]
+[ext_resource type="PackedScene" uid="uid://kjb1u5buoeyy" path="res://Scenes/Commons/event_controller.tscn" id="18_s1c0k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sxrfv"]
 texture = ExtResource("1_5frbe")
@@ -2853,14 +2854,18 @@ script = ExtResource("15_isflv")
 name = "Plunger"
 texture = ExtResource("16_k1i7i")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_h7h5j"]
+radius = 28.0179
+
 [node name="Staff" type="Node2D" node_paths=PackedStringArray("player_initial_position_marker2D")]
 position = Vector2(1, 1)
 script = ExtResource("1_30pmx")
 player_initial_position_marker2D = NodePath("Marker2D")
 
-[node name="TV" parent="." instance=ExtResource("2_xjn4m")]
+[node name="TV" parent="." node_paths=PackedStringArray("event_controller") instance=ExtResource("2_xjn4m")]
 z_index = 30
 position = Vector2(1360, -155)
+event_controller = NodePath("../EventController")
 
 [node name="TileMaps" type="Node" parent="."]
 
@@ -2899,12 +2904,13 @@ number = 2
 position = Vector2(1102, -148)
 number = 3
 
-[node name="BathDoor" parent="." instance=ExtResource("4_bitdd")]
+[node name="BathDoor" parent="." node_paths=PackedStringArray("event_controller") instance=ExtResource("4_bitdd")]
 z_index = 30
 position = Vector2(1318, 71)
+event_controller = NodePath("../EventController")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1302, -24)
+position = Vector2(1311, 178)
 
 [node name="Lockers" type="Node" parent="."]
 
@@ -2957,3 +2963,12 @@ item = SubResource("Resource_hpaty")
 z_index = 30
 position = Vector2(1278, -137)
 texture = ExtResource("17_bn71m")
+
+[node name="EventController" parent="." instance=ExtResource("18_s1c0k")]
+position = Vector2(1319, -29)
+event_name = "tv"
+delete_after = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EventController"]
+z_index = 1
+shape = SubResource("CircleShape2D_h7h5j")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbr3velmeaud7"]
+[gd_scene load_steps=16 format=3 uid="uid://bbr3velmeaud7"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/bath_door.gd" id="1_h0jdb"]
 [ext_resource type="Texture2D" uid="uid://bydbxjo5wq0eo" path="res://Assets/Museum/Objects/animated_door_bathroom_48x48.png" id="2_84rmn"]
@@ -8,6 +8,26 @@ size = Vector2(48, 84)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rixe7"]
 size = Vector2(48, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuoof"]
+atlas = ExtResource("2_84rmn")
+region = Rect2(192, 0, 48, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7stbw"]
+atlas = ExtResource("2_84rmn")
+region = Rect2(144, 0, 48, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdn4y"]
+atlas = ExtResource("2_84rmn")
+region = Rect2(96, 0, 48, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa08h"]
+atlas = ExtResource("2_84rmn")
+region = Rect2(48, 0, 48, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lvly"]
+atlas = ExtResource("2_84rmn")
+region = Rect2(0, 0, 48, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6q6bt"]
 atlas = ExtResource("2_84rmn")
@@ -31,6 +51,26 @@ region = Rect2(192, 0, 48, 144)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mw7ld"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuoof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7stbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdn4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa08h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lvly")
+}],
+"loop": false,
+"name": &"Close",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6q6bt")

@@ -71,7 +71,6 @@ shape = SubResource("RectangleShape2D_j7fa7")
 [node name="TVAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qaaw3")
 animation = &"On"
-autoplay = "On"
 frame_progress = 0.60021
 
 [node name="TVDialogue" parent="." instance=ExtResource("2_5vmwr")]
