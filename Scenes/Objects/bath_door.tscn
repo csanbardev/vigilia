@@ -70,7 +70,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Close",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
