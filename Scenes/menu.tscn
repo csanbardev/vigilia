@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2c5t3x162ku2"]
+[gd_scene load_steps=6 format=3 uid="uid://b2c5t3x162ku2"]
 
 [ext_resource type="FontFile" uid="uid://b8vmn0f4qdyx" path="res://Assets/Fonts/PixicaMono-Bold.ttf" id="1_8gxe5"]
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_rl1ak"]
 [ext_resource type="PackedScene" uid="uid://cryiffffrpm0b" path="res://Scenes/menu_background.tscn" id="1_xn71b"]
 [ext_resource type="FontFile" uid="uid://djas1d503biej" path="res://Assets/Fonts/PixicaMono-Wide.ttf" id="2_hu6oj"]
 
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rl1ak")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -64,3 +66,6 @@ text = "Salir
 "
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_xn71b")]
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
