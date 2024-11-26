@@ -4,12 +4,14 @@ class_name Player
 const SPEED = 150.0
 const ACCELERATION_SMOOTHING = 25
 
-var light_distance := 75.0
+var light_distance := 120.0
 
 func _ready() -> void:
 	$FlashLight.energy = 1.0
+	$FlashLight.visible = false
 
 func _process(delta: float) -> void:
+	
 	# mouse position
 	var mouse_position = get_global_mouse_position()
 	
@@ -25,6 +27,16 @@ func _process(delta: float) -> void:
 	
 	# set angle of the flash light texture
 	$FlashLight.rotation = direction_to_mouse.angle()
+
+func _input(event: InputEvent) -> void:
+	
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				$FlashLight.visible = true
+			else:
+				$FlashLight.visible = false
+				
 
 func _physics_process(delta: float) -> void:
 	# Obtener la dirección de entrada en el eje X e Y para movimiento en 8 direcciones

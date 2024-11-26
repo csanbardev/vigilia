@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_8echh"]
 [ext_resource type="Texture2D" uid="uid://v383u1hssg8j" path="res://Assets/Player/Bruce_idle_48x48.png" id="1_216pi"]
 [ext_resource type="PackedScene" uid="uid://osvpu1jap7kp" path="res://Scenes/UI/collecteditems.tscn" id="2_2pvh1"]
+[ext_resource type="Texture2D" uid="uid://dv6oufmm1vymu" path="res://Assets/Sin nombre.png" id="2_svd7w"]
 [ext_resource type="Texture2D" uid="uid://ogcxafbemuoi" path="res://Assets/light.png" id="3_3ft0o"]
 [ext_resource type="Texture2D" uid="uid://dyd7ew6gi2t1u" path="res://Assets/Player/Bruce_run_48x48.png" id="3_aydij"]
-[ext_resource type="Texture2D" uid="uid://c1i2o3s163hm5" path="res://Assets/cone-light.png" id="3_dnh0x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g6juj"]
 atlas = ExtResource("1_216pi")
@@ -240,9 +240,9 @@ motion_mode = 1
 script = ExtResource("1_8echh")
 
 [node name="FlashLight" type="PointLight2D" parent="."]
-position = Vector2(55.9311, 14.0847)
+position = Vector2(-78.0689, 287.085)
 rotation = -1.57613
-scale = Vector2(10.7168, 6.28722)
+scale = Vector2(4.84626, 1.92477)
 color = Color(0.964417, 0.967901, 0.972848, 1)
 energy = 1.9
 range_layer_max = 6
@@ -250,8 +250,8 @@ range_item_cull_mask = 3
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 1
 shadow_filter_smooth = 2.6
-texture = ExtResource("3_dnh0x")
-texture_scale = 0.01
+texture = ExtResource("2_svd7w")
+texture_scale = 0.1
 height = 90.0
 
 [node name="CollectedItems" parent="." instance=ExtResource("2_2pvh1")]
