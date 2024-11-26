@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2c5t3x162ku2"]
+[gd_scene load_steps=8 format=3 uid="uid://b2c5t3x162ku2"]
 
 [ext_resource type="FontFile" uid="uid://b8vmn0f4qdyx" path="res://Assets/Fonts/PixicaMono-Bold.ttf" id="1_8gxe5"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_rl1ak"]
 [ext_resource type="PackedScene" uid="uid://cryiffffrpm0b" path="res://Scenes/menu_background.tscn" id="1_xn71b"]
 [ext_resource type="FontFile" uid="uid://djas1d503biej" path="res://Assets/Fonts/PixicaMono-Wide.ttf" id="2_hu6oj"]
+[ext_resource type="AudioStream" uid="uid://waqiqs6hh0sq" path="res://Assets/Sounds/Music/Cave Ambience_Pitched Drips.ogg" id="5_ek8ri"]
+[ext_resource type="AudioStream" uid="uid://diiq0twx0tn7" path="res://Assets/Sounds/Music/Crying_moaning_ambience.ogg" id="6_at1kv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cwkxt"]
 font = ExtResource("1_8gxe5")
@@ -66,6 +68,16 @@ text = "Salir
 "
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_xn71b")]
+
+[node name="MainMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ek8ri")
+autoplay = true
+parameters/looping = false
+
+[node name="SecondaryMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_at1kv")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

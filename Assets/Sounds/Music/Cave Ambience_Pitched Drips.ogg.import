@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://waqiqs6hh0sq"
+path="res://.godot/imported/Cave Ambience_Pitched Drips.ogg-869dc892c588d19e89acaade05171c44.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Music/Cave Ambience_Pitched Drips.ogg"
+dest_files=["res://.godot/imported/Cave Ambience_Pitched Drips.ogg-869dc892c588d19e89acaade05171c44.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
