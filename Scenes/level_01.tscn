@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c73amj1v8c8ec"]
+[gd_scene load_steps=7 format=3 uid="uid://c73amj1v8c8ec"]
 
+[ext_resource type="Script" path="res://Scripts/level_01.gd" id="1_6w8l6"]
 [ext_resource type="PackedScene" uid="uid://bunpc3i8oksqf" path="res://Scenes/player.tscn" id="2_57os0"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_gvhx6"]
 [ext_resource type="Script" path="res://Scripts/canvas_modulate.gd" id="3_h3hw8"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://du7136rtorqc8" path="res://Scenes/Areas/corridor.tscn" id="5_dh7xq"]
 
 [node name="Level01" type="Node2D"]
+script = ExtResource("1_6w8l6")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 zoom = Vector2(1.8, 1.8)
