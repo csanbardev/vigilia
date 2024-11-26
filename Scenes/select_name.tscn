@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://bomlqk05y43qw"]
+
+[ext_resource type="Script" path="res://Scripts/select_name.gd" id="1_np8cg"]
+[ext_resource type="FontFile" uid="uid://b8vmn0f4qdyx" path="res://Assets/Fonts/PixicaMono-Bold.ttf" id="2_wxjcn"]
+[ext_resource type="FontFile" uid="uid://djas1d503biej" path="res://Assets/Fonts/PixicaMono-Wide.ttf" id="3_cbx3m"]
+[ext_resource type="PackedScene" uid="uid://cryiffffrpm0b" path="res://Scenes/menu_background.tscn" id="4_xeu14"]
+[ext_resource type="AudioStream" uid="uid://waqiqs6hh0sq" path="res://Assets/Sounds/Music/Cave Ambience_Pitched Drips.ogg" id="5_twdpt"]
+[ext_resource type="AudioStream" uid="uid://diiq0twx0tn7" path="res://Assets/Sounds/Music/Crying_moaning_ambience.ogg" id="6_7gwo5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cwkxt"]
+font = ExtResource("2_wxjcn")
+font_size = 55
+
+[node name="SelectName" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_np8cg")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = -96.5
+offset_right = 105.5
+offset_bottom = -41.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "¿Cómo te llamas?"
+label_settings = SubResource("LabelSettings_cwkxt")
+horizontal_alignment = 1
+
+[node name="Name" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -2.0
+offset_right = 143.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_cbx3m")
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Artorias"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_xeu14")]
+
+[node name="MainMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_twdpt")
+autoplay = true
+parameters/looping = false
+
+[node name="SecondaryMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_7gwo5")
+autoplay = true
+parameters/looping = true
+
+[connection signal="text_submitted" from="Name" to="." method="_on_name_text_submitted"]
