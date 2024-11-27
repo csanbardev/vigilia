@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bunpc3i8oksqf"]
+[gd_scene load_steps=38 format=3 uid="uid://bunpc3i8oksqf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_8echh"]
 [ext_resource type="Texture2D" uid="uid://v383u1hssg8j" path="res://Assets/Player/Bruce_idle_48x48.png" id="1_216pi"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dv6oufmm1vymu" path="res://Assets/Sin nombre.png" id="2_svd7w"]
 [ext_resource type="Texture2D" uid="uid://ogcxafbemuoi" path="res://Assets/light.png" id="3_3ft0o"]
 [ext_resource type="Texture2D" uid="uid://dyd7ew6gi2t1u" path="res://Assets/Player/Bruce_run_48x48.png" id="3_aydij"]
+[ext_resource type="AudioStream" uid="uid://ooi0sw43moxh" path="res://Assets/Sounds/Menu_click_3.ogg" id="3_f1j7f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g6juj"]
 atlas = ExtResource("1_216pi")
@@ -253,6 +254,9 @@ shadow_filter_smooth = 2.6
 texture = ExtResource("2_svd7w")
 texture_scale = 0.1
 height = 90.0
+
+[node name="FlashLightClic" type="AudioStreamPlayer2D" parent="FlashLight"]
+stream = ExtResource("3_f1j7f")
 
 [node name="CollectedItems" parent="." instance=ExtResource("2_2pvh1")]
 offset_left = 57.0

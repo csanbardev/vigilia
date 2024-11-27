@@ -36,7 +36,8 @@ func _input(event: InputEvent) -> void:
 				$FlashLight.visible = true
 			else:
 				$FlashLight.visible = false
-				
+			# plays clic sound
+			$FlashLight/FlashLightClic.play()
 
 func _physics_process(delta: float) -> void:
 	# Obtener la dirección de entrada en el eje X e Y para movimiento en 8 direcciones
