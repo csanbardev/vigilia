@@ -13,6 +13,8 @@ script = ExtResource("1_o5n57")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Panel" type="Panel" parent="."]
 show_behind_parent = true
