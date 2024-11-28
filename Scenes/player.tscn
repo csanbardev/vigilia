@@ -236,6 +236,7 @@ animations = [{
 height = 44.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 7
 collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_8echh")
