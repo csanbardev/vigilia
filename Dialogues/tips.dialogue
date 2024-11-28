@@ -3,3 +3,8 @@
 Player: Necesito la tarjeta de acceso para pasar.
 => END
 
+~ pass_blocked
+
+Player: Debería poder pasar por aquí, pero la cuerda es muy alta.
+Player: Si no estuviera malo de las rodillas... aims.
+=> END 
