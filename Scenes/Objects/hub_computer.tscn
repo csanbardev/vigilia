@@ -1,0 +1,129 @@
+[gd_scene load_steps=19 format=3 uid="uid://bw0nlmqlhwvn"]
+
+[ext_resource type="Texture2D" uid="uid://vrpg10qidcsw" path="res://Assets/Museum/Objects/Hub/hub_computer.png" id="1_flurb"]
+[ext_resource type="Script" path="res://Scripts/Objects/hub_computer.gd" id="1_x0pl0"]
+[ext_resource type="PackedScene" uid="uid://2wjbywmpv4ca" path="res://Scenes/UI/numbers_panel.tscn" id="3_623fk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o34y6"]
+atlas = ExtResource("1_flurb")
+region = Rect2(0, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alshs"]
+atlas = ExtResource("1_flurb")
+region = Rect2(48, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dho0h"]
+atlas = ExtResource("1_flurb")
+region = Rect2(96, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_148yq"]
+atlas = ExtResource("1_flurb")
+region = Rect2(144, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42fxn"]
+atlas = ExtResource("1_flurb")
+region = Rect2(192, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqo2q"]
+atlas = ExtResource("1_flurb")
+region = Rect2(240, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdaq3"]
+atlas = ExtResource("1_flurb")
+region = Rect2(288, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfh8c"]
+atlas = ExtResource("1_flurb")
+region = Rect2(336, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qw8u"]
+atlas = ExtResource("1_flurb")
+region = Rect2(384, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1e4e"]
+atlas = ExtResource("1_flurb")
+region = Rect2(432, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjkxi"]
+atlas = ExtResource("1_flurb")
+region = Rect2(480, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56xto"]
+atlas = ExtResource("1_flurb")
+region = Rect2(528, 0, 48, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0j8dx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o34y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alshs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dho0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_148yq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42fxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqo2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdaq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfh8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qw8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1e4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjkxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56xto")
+}],
+"loop": true,
+"name": &"On",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bq7jk"]
+size = Vector2(49, 62)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s146c"]
+radius = 22.0
+
+[node name="HubComputer" type="StaticBody2D"]
+process_mode = 3
+script = ExtResource("1_x0pl0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0j8dx")
+animation = &"On"
+frame_progress = 0.373083
+
+[node name="HubComputerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -5)
+shape = SubResource("RectangleShape2D_bq7jk")
+
+[node name="HubComputerArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HubComputerArea2D"]
+position = Vector2(-1, 23)
+shape = SubResource("CircleShape2D_s146c")
+
+[node name="NumbersPanel" parent="." instance=ExtResource("3_623fk")]
+visible = false
+z_index = 310
+
+[connection signal="body_entered" from="HubComputerArea2D" to="." method="_on_hub_computer_area_2d_body_entered"]
+[connection signal="body_exited" from="HubComputerArea2D" to="." method="_on_hub_computer_area_2d_body_exited"]
