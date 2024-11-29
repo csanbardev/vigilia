@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://bihnurei6ba5y"]
+[gd_scene load_steps=38 format=4 uid="uid://bihnurei6ba5y"]
 
 [ext_resource type="Script" path="res://Scripts/Commons/level.gd" id="1_j2f6c"]
 [ext_resource type="Texture2D" uid="uid://c2syetm6hglfg" path="res://Assets/Museum/Objects/Hub/animated_hospital_surgery_door_48x48.png" id="2_dwjqn"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://mp8vas13wcda" path="res://Scenes/Commons/level_transporter.tscn" id="4_qgc7r"]
 [ext_resource type="Texture2D" uid="uid://b7fy4w5llal8c" path="res://Assets/Museum/Objects/Hub/Museum_Singles_48x48_88.png" id="5_jyv0m"]
 [ext_resource type="Texture2D" uid="uid://bf2gf7qn11lxb" path="res://Assets/Museum/Objects/Hub/Museum_Singles_48x48_131.png" id="6_okq78"]
+[ext_resource type="Texture2D" uid="uid://dphv3avginpbq" path="res://Assets/Museum/Objects/Hub/Museum_Singles_48x48_17.png" id="7_lfk3v"]
 [ext_resource type="Texture2D" uid="uid://bnm44nntmr0ge" path="res://Assets/Museum/Objects/Hub/Museum_Singles_48x48_132.png" id="7_wx8b0"]
 [ext_resource type="Texture2D" uid="uid://d0c6wgs1egd4r" path="res://Assets/Museum/Objects/Hub/Museum_Singles_48x48_305.png" id="8_1oiwj"]
 [ext_resource type="Texture2D" uid="uid://hf1cueqr4ajb" path="res://Assets/Museum/Objects/Hub/Museum_Singles_48x48_391.png" id="9_5cniq"]
@@ -15,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://b8vu0opvkebav" path="res://Assets/Museum/Objects/Hub/Museum_Singles_48x48_71.png" id="12_hbnko"]
 [ext_resource type="Texture2D" uid="uid://bgajjlbfd1c3s" path="res://Assets/Museum/Objects/Hub/Museum_Singles_48x48_72.png" id="13_baxna"]
 [ext_resource type="Texture2D" uid="uid://bxh5ojbdsqv2v" path="res://Assets/Museum/Objects/Hub/Museum_Singles_48x48_73.png" id="14_r6ymk"]
+[ext_resource type="PackedScene" uid="uid://bw0nlmqlhwvn" path="res://Scenes/Objects/hub_computer.tscn" id="16_yav2r"]
+[ext_resource type="PackedScene" uid="uid://2wjbywmpv4ca" path="res://Scenes/UI/numbers_panel.tscn" id="17_5t0m4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hf0ju"]
 texture = ExtResource("3_5xvqm")
@@ -1679,6 +1682,13 @@ texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(24, 0)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3jlsw"]
+texture = ExtResource("7_lfk3v")
+texture_region_size = Vector2i(64, 61)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-24, 29)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.48008, -51.9724, 53.5633, -51.6188, 51.442, -17.3241, -5.48008, -18.3848)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ck4qr"]
 texture = ExtResource("6_okq78")
 texture_region_size = Vector2i(48, 80)
@@ -1742,6 +1752,7 @@ sources/6 = SubResource("TileSetAtlasSource_krnm8")
 sources/7 = SubResource("TileSetAtlasSource_snyka")
 sources/8 = SubResource("TileSetAtlasSource_kov0d")
 sources/9 = SubResource("TileSetAtlasSource_usnll")
+sources/10 = SubResource("TileSetAtlasSource_3jlsw")
 tile_proxies/source_level = [1, 0]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d037f"]
@@ -1776,7 +1787,7 @@ tile_set = SubResource("TileSet_onb3l")
 metadata/_edit_lock_ = true
 
 [node name="Objects" type="TileMapLayer" parent="TileMaps"]
-tile_map_data = PackedByteArray("AAABAAIAAwAAAAAAAAAOAAIAAgAAAAAAAAACAAoAAAAAAAAAAAACAAsAAAAAAAEAAAADAAoAAAABAAAAAAADAAsAAAABAAEAAAAKAA0ABAAAAAAAAAAGAA0AAQAAAAAAAAAEAAEABQAAAAAAAAAMAAoABgAAAAAAAAAMAAsABgAAAAEAAAANAAoABgABAAAAAAANAAsABgABAAEAAAA=")
+tile_map_data = PackedByteArray("AAABAAIAAwAAAAAAAAAOAAIAAgAAAAAAAAACAAoAAAAAAAAAAAACAAsAAAAAAAEAAAADAAoAAAABAAAAAAADAAsAAAABAAEAAAAKAA0ABAAAAAAAAAAGAA0AAQAAAAAAAAAEAAEABQAAAAAAAAAMAAoABgAAAAAAAAAMAAsABgAAAAEAAAANAAoABgABAAAAAAANAAsABgABAAEAAAAHAAkACgAAAAAAAAA=")
 tile_set = SubResource("TileSet_h8mna")
 metadata/_edit_lock_ = true
 
@@ -1834,3 +1845,8 @@ texture = ExtResource("14_r6ymk")
 [node name="MuseumSingles48x4871" type="Sprite2D" parent="RopeBarriers2"]
 position = Vector2(-9, 12)
 texture = ExtResource("12_hbnko")
+
+[node name="HubComputer" parent="." instance=ExtResource("16_yav2r")]
+z_index = 30
+position = Vector2(385, 401)
+numbers_panel = ExtResource("17_5t0m4")
