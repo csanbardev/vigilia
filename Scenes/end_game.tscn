@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://8c5fl03kerhy"]
+[gd_scene load_steps=6 format=3 uid="uid://8c5fl03kerhy"]
 
 [ext_resource type="FontFile" uid="uid://b8vmn0f4qdyx" path="res://Assets/Fonts/PixicaMono-Bold.ttf" id="1_q6uvo"]
+[ext_resource type="Script" path="res://Scripts/end_game.gd" id="1_x156a"]
 [ext_resource type="PackedScene" uid="uid://cryiffffrpm0b" path="res://Scenes/menu_background.tscn" id="2_fbuwx"]
+[ext_resource type="FontFile" uid="uid://djas1d503biej" path="res://Assets/Fonts/PixicaMono-Wide.ttf" id="4_5cxck"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cwkxt"]
 font = ExtResource("1_q6uvo")
@@ -14,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_x156a")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -33,3 +36,22 @@ label_settings = SubResource("LabelSettings_cwkxt")
 horizontal_alignment = 1
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_fbuwx")]
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = 195.5
+offset_right = 21.0
+offset_bottom = 226.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5cxck")
+theme_override_font_sizes/font_size = 34
+text = "Salir"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
