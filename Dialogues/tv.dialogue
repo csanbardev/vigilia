@@ -1,26 +1,26 @@
 ~ tv_start
-Player: Qué pinta un televisor aquí.
-Player: ¿Debería apagarlo?.
+{{character_name}}: Qué pinta un televisor aquí. 
+{{character_name}}: ¿Debería apagarlo?.
 - Apagar
 	=> tv_not_off
 - Dejarlo => END
 => END
 
 ~ tv_not_off
-Player: Pues... no se apaga. Qué raro.
+{{character_name}}: Pues... no se apaga. Qué raro.
 => END
 
 ~ tv_new_start
-Player: No veo que haya cambiado nada.
-Player: Quizás debería cargármelo
+{{character_name}}: No veo que haya cambiado nada.
+{{character_name}}: Quizás debería cargármelo
 - Romper
 	
 	if has_tv_object:
-		Player: No ha sido la idea más elegante...
-		Player: Pero quizás este cristal me sirva.
+		{{character_name}}: No ha sido la idea más elegante...
+		{{character_name}}: Pero quizás este cristal me sirva.
 		set break_tv = true
 	else:
-		Player: Si tuviera algo para romperlo... 
+		{{character_name}}: Si tuviera algo para romperlo... 
 - Mejor no
-	Player: Me podría hacer daño.
+	{{character_name}}: Me podría hacer daño.
 => END
