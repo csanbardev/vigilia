@@ -5,7 +5,7 @@ const SPEED = 150.0
 const ACCELERATION_SMOOTHING = 25
 
 var light_distance := 120.0
-var can_move: bool = true
+@export var can_move: bool = true
 func _ready() -> void:
 	$FlashLight.energy = 1.0
 	$FlashLight.visible = false

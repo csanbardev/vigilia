@@ -14,7 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	if Input.is_action_just_pressed("interact") and is_player_on_area:
+	if Input.is_action_just_pressed("interact") and is_player_on_area and !dialogue_start_flag:
 		get_tree().get_first_node_in_group("Player").set_player_paused(true)
 		
 		DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_start)
@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 			emit_signal("dialogue_start_activate")
 
 func _on_dialogue_closed(resource: DialogueResource) -> void:
+	dialogue_start_flag = false
 	# let player move
 	get_tree().get_first_node_in_group("Player").set_player_paused(false)
 	
