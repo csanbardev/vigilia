@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Commons/tip.gd" id="1_r62ko"]
 
 [node name="Tip" type="Area2D"]
+process_mode = 3
 script = ExtResource("1_r62ko")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

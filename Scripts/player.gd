@@ -5,7 +5,7 @@ const SPEED = 150.0
 const ACCELERATION_SMOOTHING = 25
 
 var light_distance := 120.0
-
+var can_move: bool = true
 func _ready() -> void:
 	$FlashLight.energy = 1.0
 	$FlashLight.visible = false
@@ -38,8 +38,16 @@ func _input(event: InputEvent) -> void:
 				$FlashLight.visible = false
 			# plays clic sound
 			$FlashLight/FlashLightClic.play()
-
-func _physics_process(delta: float) -> void:
+func set_player_paused(paused: bool) -> void:
+	can_move = !paused
+	if paused:
+		$FlashLight.visible = true
+	else:
+		$FlashLight.visible = false
+func _physics_process(delta: float) -> void: 
+	if not can_move:
+		velocity = Vector2.ZERO  # Detén el movimiento
+		return
 	# Obtener la dirección de entrada en el eje X e Y para movimiento en 8 direcciones
 	var input_vector := Vector2(
 		Input.get_axis("ui_left", "ui_right"),
