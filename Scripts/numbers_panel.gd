@@ -7,7 +7,7 @@ func _on_open_pressed() -> void:
 	if check_numbers(numbers):
 		get_tree().paused = false
 		visible = false
-		
+		get_tree().change_scene_to_file("res://Scenes/end_game.tscn")
 	else: 
 		$Panel/WarningLabel.visible = true
 	
