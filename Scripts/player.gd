@@ -11,7 +11,10 @@ func _ready() -> void:
 	$FlashLight.visible = false
 
 func _process(delta: float) -> void:
-	
+	# avoid flashlight move when player cannot move
+	if not can_move:
+		return  
+		
 	# mouse position
 	var mouse_position = get_global_mouse_position()
 	
@@ -29,7 +32,10 @@ func _process(delta: float) -> void:
 	$FlashLight.rotation = direction_to_mouse.angle()
 
 func _input(event: InputEvent) -> void:
-	
+	if not can_move:
+		$FlashLight.visible = true
+		return  
+		
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
@@ -43,6 +49,7 @@ func set_player_paused(paused: bool) -> void:
 	can_move = !paused
 	if paused:
 		$FlashLight.visible = true
+		
 	else:
 		$FlashLight.visible = false
 
