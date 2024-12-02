@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bunpc3i8oksqf"]
+[gd_scene load_steps=39 format=3 uid="uid://bunpc3i8oksqf"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_8echh"]
 [ext_resource type="Texture2D" uid="uid://v383u1hssg8j" path="res://Assets/Player/Bruce_idle_48x48.png" id="1_216pi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ogcxafbemuoi" path="res://Assets/light.png" id="3_3ft0o"]
 [ext_resource type="Texture2D" uid="uid://dyd7ew6gi2t1u" path="res://Assets/Player/Bruce_run_48x48.png" id="3_aydij"]
 [ext_resource type="AudioStream" uid="uid://ooi0sw43moxh" path="res://Assets/Sounds/Menu_click_3.ogg" id="3_f1j7f"]
+[ext_resource type="AudioStream" uid="uid://duivlmiwfb0rp" path="res://Assets/Sounds/Effects/Footsteps_walking.ogg" id="8_g00rm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g6juj"]
 atlas = ExtResource("1_216pi")
@@ -280,3 +281,6 @@ texture = ExtResource("3_3ft0o")
 
 [node name="LightPivot" type="Node2D" parent="."]
 position = Vector2(-3, 21)
+
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_g00rm")

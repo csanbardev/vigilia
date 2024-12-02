@@ -38,12 +38,20 @@ func _input(event: InputEvent) -> void:
 				$FlashLight.visible = false
 			# plays clic sound
 			$FlashLight/FlashLightClic.play()
+			
 func set_player_paused(paused: bool) -> void:
 	can_move = !paused
 	if paused:
 		$FlashLight.visible = true
 	else:
 		$FlashLight.visible = false
+
+func control_walking_sound(walking: bool) -> void:
+	if walking and !$WalkingSound.playing:
+		$WalkingSound.play()
+	elif !walking and $WalkingSound.playing:
+		$WalkingSound.stop()
+
 func _physics_process(delta: float) -> void: 
 	if not can_move:
 		velocity = Vector2.ZERO  # Detén el movimiento
@@ -63,6 +71,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Cambiar animaciones basadas en la entrada
 	if input_vector.length() > 0:  # Si hay movimiento
+		control_walking_sound(true)
 		if Input.is_action_just_pressed("ui_right"):
 			$PlayerAnimation.play("Run_Right")
 		elif Input.is_action_just_pressed("ui_left"):
@@ -72,6 +81,7 @@ func _physics_process(delta: float) -> void:
 		elif Input.is_action_just_pressed("ui_up"):
 			$PlayerAnimation.play("Run_Up")
 	else:  # Si no hay movimiento, se usa la animación Idle
+		control_walking_sound(false)
 		# Obtener la dirección del ratón con respecto al jugador
 		var mouse_position = get_global_mouse_position()
 		var direction_to_mouse = (mouse_position - global_position).normalized()
