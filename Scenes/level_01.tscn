@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c73amj1v8c8ec"]
+[gd_scene load_steps=8 format=3 uid="uid://c73amj1v8c8ec"]
 
 [ext_resource type="Script" path="res://Scripts/level_01.gd" id="1_6w8l6"]
 [ext_resource type="PackedScene" uid="uid://bunpc3i8oksqf" path="res://Scenes/player.tscn" id="2_57os0"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_gvhx6"]
 [ext_resource type="Script" path="res://Scripts/canvas_modulate.gd" id="3_h3hw8"]
 [ext_resource type="Script" path="res://Scripts/Commons/level_manager.gd" id="5_8a202"]
-[ext_resource type="PackedScene" uid="uid://du7136rtorqc8" path="res://Scenes/Areas/corridor.tscn" id="5_dh7xq"]
+[ext_resource type="PackedScene" uid="uid://bihnurei6ba5y" path="res://Scenes/Areas/hub.tscn" id="6_al652"]
+[ext_resource type="AudioStream" uid="uid://djlee5f4dmith" path="res://Assets/Sounds/Music/Ambience_haunting_2.ogg" id="7_sq54x"]
 
 [node name="Level01" type="Node2D"]
 script = ExtResource("1_6w8l6")
@@ -20,6 +21,7 @@ z_index = 100
 position = Vector2(-293, -139)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0295066, 0.0295066, 0.0295066, 1)
 script = ExtResource("3_h3hw8")
 
@@ -27,4 +29,10 @@ script = ExtResource("3_h3hw8")
 script = ExtResource("5_8a202")
 player = NodePath("../Player")
 
-[node name="Corridor" parent="LevelManager" instance=ExtResource("5_dh7xq")]
+[node name="Hub" parent="LevelManager" instance=ExtResource("6_al652")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_sq54x")
+volume_db = -10.895
+autoplay = true
+parameters/looping = true
