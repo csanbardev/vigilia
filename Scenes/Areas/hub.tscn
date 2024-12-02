@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bihnurei6ba5y"]
+[gd_scene load_steps=50 format=4 uid="uid://bihnurei6ba5y"]
 
 [ext_resource type="Script" path="res://Scripts/Commons/level.gd" id="1_j2f6c"]
 [ext_resource type="Texture2D" uid="uid://c2syetm6hglfg" path="res://Assets/Museum/Objects/Hub/animated_hospital_surgery_door_48x48.png" id="2_dwjqn"]
@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://2wjbywmpv4ca" path="res://Scenes/UI/numbers_panel.tscn" id="17_5t0m4"]
 [ext_resource type="PackedScene" uid="uid://b3vb0h4y2j0b2" path="res://Scenes/Commons/autoplay_dialogue.tscn" id="19_rxeye"]
 [ext_resource type="Resource" uid="uid://1h3fiuhqr4to" path="res://Dialogues/lore/hub.dialogue" id="20_4kumh"]
+[ext_resource type="PackedScene" uid="uid://b171we7ms7inw" path="res://Scenes/Commons/temporal_sounds.tscn" id="21_0fc0m"]
+[ext_resource type="AudioStream" uid="uid://c58p51cp421hx" path="res://Assets/Sounds/Effects/robotic_hiss_2.ogg" id="22_qu6w2"]
+[ext_resource type="AudioStream" uid="uid://dm8xytlspj6yk" path="res://Assets/Sounds/Effects/Breath_out_deep.ogg" id="23_aswlr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h3aqs"]
 texture = ExtResource("3_5xvqm")
@@ -3377,6 +3380,11 @@ size = Vector2(91, 29)
 [sub_resource type="CircleShape2D" id="CircleShape2D_maw50"]
 radius = 21.095
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7f48"]
+size = Vector2(46, 107)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smd5q"]
+
 [node name="Hub" type="Node2D" node_paths=PackedStringArray("player_initial_position_marker2D")]
 script = ExtResource("1_j2f6c")
 player_initial_position_marker2D = NodePath("Marker2D")
@@ -3481,3 +3489,20 @@ dialogue_start = "first"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FirstLore"]
 shape = SubResource("CircleShape2D_maw50")
+
+[node name="TemporalSounds" type="Node" parent="."]
+
+[node name="Robotic" parent="TemporalSounds" instance=ExtResource("21_0fc0m")]
+position = Vector2(675, 767)
+sound = ExtResource("22_qu6w2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TemporalSounds/Robotic"]
+position = Vector2(-604, -330)
+shape = SubResource("RectangleShape2D_w7f48")
+
+[node name="Breath" parent="TemporalSounds" instance=ExtResource("21_0fc0m")]
+position = Vector2(90, 625)
+sound = ExtResource("23_aswlr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TemporalSounds/Breath"]
+shape = SubResource("CircleShape2D_smd5q")

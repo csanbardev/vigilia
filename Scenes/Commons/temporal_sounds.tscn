@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b171we7ms7inw"]
+
+[ext_resource type="Script" path="res://Scripts/Commons/temporal_sounds.gd" id="1_h7wa5"]
+
+[node name="TemporalSounds" type="Area2D"]
+script = ExtResource("1_h7wa5")
+
+[node name="TemporalSoundsAudio" type="AudioStreamPlayer2D" parent="."]
+volume_db = -25.797
+attenuation = 0.0824694
+panning_strength = 1.77
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="TemporalSoundsAudio" to="." method="_on_temporal_sounds_audio_finished"]
