@@ -7,9 +7,6 @@ var is_active: bool = false
 @onready var fog_sprite = get_parent().get_parent().get_node("Fog")
 @export var number: int 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,7 +16,10 @@ func _process(delta: float) -> void:
 			$ShowerAnimation.play("Off")
 			#$ShowerAnimation.play("Idle_Off")
 			set_active(false)
+			$ShowerRunning.stop()
+			$ShowerStopping.play()
 		else:
+			$ShowerRunning.play()
 			$ShowerAnimation.play("On")
 			$ShowerAnimation.play("Idle_On")
 			set_active(true)

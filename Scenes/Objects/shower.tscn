@@ -1,7 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://x64jh1m6wqk"]
+[gd_scene load_steps=24 format=3 uid="uid://x64jh1m6wqk"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/shower.gd" id="1_nva8b"]
 [ext_resource type="Texture2D" uid="uid://biwx5a2w31ckt" path="res://Assets/Museum/Objects/animated_bathtub_2_new_1_4-7 loop_48x48.png" id="1_wipdd"]
+[ext_resource type="AudioStream" uid="uid://qkaqo2iguafg" path="res://Assets/Sounds/Effects/Water_running.ogg" id="3_ua1nl"]
+[ext_resource type="AudioStream" uid="uid://cdog2xkg51nod" path="res://Assets/Sounds/Effects/Water_stopping.ogg" id="4_pu2h1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rggp"]
 size = Vector2(87, 152)
@@ -161,6 +163,18 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShowerArea"]
 position = Vector2(2.5, 33.5)
 shape = SubResource("RectangleShape2D_yrfd0")
+
+[node name="ShowerRunning" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ua1nl")
+volume_db = -2.0
+max_distance = 500.0
+attenuation = 0.378929
+parameters/looping = true
+
+[node name="ShowerStopping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_pu2h1")
+volume_db = -2.0
+pitch_scale = 1.99
 
 [connection signal="body_entered" from="ShowerArea" to="." method="_on_shower_area_body_entered"]
 [connection signal="body_exited" from="ShowerArea" to="." method="_on_shower_area_body_exited"]
