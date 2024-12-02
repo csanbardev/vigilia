@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3vb0h4y2j0b2"]
+
+[ext_resource type="Script" path="res://Scripts/Commons/autoplay_dialogue.gd" id="1_g6w4i"]
+
+[node name="AutoplayDialogue" type="Area2D"]
+process_mode = 3
+collision_layer = 4
+script = ExtResource("1_g6w4i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
