@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bihnurei6ba5y"]
+[gd_scene load_steps=45 format=4 uid="uid://bihnurei6ba5y"]
 
 [ext_resource type="Script" path="res://Scripts/Commons/level.gd" id="1_j2f6c"]
 [ext_resource type="Texture2D" uid="uid://c2syetm6hglfg" path="res://Assets/Museum/Objects/Hub/animated_hospital_surgery_door_48x48.png" id="2_dwjqn"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://bxh5ojbdsqv2v" path="res://Assets/Museum/Objects/Hub/Museum_Singles_48x48_73.png" id="14_r6ymk"]
 [ext_resource type="PackedScene" uid="uid://bw0nlmqlhwvn" path="res://Scenes/Objects/hub_computer.tscn" id="16_yav2r"]
 [ext_resource type="PackedScene" uid="uid://2wjbywmpv4ca" path="res://Scenes/UI/numbers_panel.tscn" id="17_5t0m4"]
+[ext_resource type="PackedScene" uid="uid://b3vb0h4y2j0b2" path="res://Scenes/Commons/autoplay_dialogue.tscn" id="19_rxeye"]
+[ext_resource type="Resource" uid="uid://1h3fiuhqr4to" path="res://Dialogues/lore/hub.dialogue" id="20_4kumh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h3aqs"]
 texture = ExtResource("3_5xvqm")
@@ -3372,6 +3374,9 @@ size = Vector2(174, 21.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhq40"]
 size = Vector2(91, 29)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_maw50"]
+radius = 21.095
+
 [node name="Hub" type="Node2D" node_paths=PackedStringArray("player_initial_position_marker2D")]
 script = ExtResource("1_j2f6c")
 player_initial_position_marker2D = NodePath("Marker2D")
@@ -3468,3 +3473,11 @@ texture = ExtResource("12_hbnko")
 z_index = 30
 position = Vector2(385, 401)
 numbers_panel = ExtResource("17_5t0m4")
+
+[node name="FirstLore" parent="." instance=ExtResource("19_rxeye")]
+position = Vector2(92, 626)
+dialogue_resource = ExtResource("20_4kumh")
+dialogue_start = "first"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstLore"]
+shape = SubResource("CircleShape2D_maw50")

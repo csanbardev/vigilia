@@ -7,7 +7,7 @@ signal dialogue_start_activate
 
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String = "start"
-@export var auto_remove: bool = false
+@export var auto_remove: bool = true
 
 func _ready() -> void:
 	DialogueManager.connect("dialogue_ended", Callable(self, "_on_dialogue_closed"))
@@ -22,13 +22,14 @@ func init_dialogue () -> void:
 			dialogue_start_flag = true
 			emit_signal("dialogue_start_activate")
 		
-		if auto_remove:
-			queue_free()
+		
 
 func _on_dialogue_closed(resource: DialogueResource) -> void:
 	dialogue_start_flag = false
 	# let player move
 	get_tree().get_first_node_in_group("Player").set_player_paused(false)
+	if auto_remove:
+			queue_free()
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
