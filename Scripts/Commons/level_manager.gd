@@ -12,7 +12,10 @@ func _ready() -> void:
 		queue_free()  
 	
 	_get_current_level()
-	current_level.set_player_position(player)
+	if current_level.name == "hub" and States.hub_transported:
+		current_level.set_player_hub_position(player)
+	else:
+		current_level.set_player_position(player)
 
 
 func change_level_by_name(level_name: String):
@@ -23,7 +26,10 @@ func change_level_by_name(level_name: String):
 		current_level.queue_free()
 
 	current_level = _get_level_instance_by_key(level_name) as Level
-	current_level.set_player_position(player)
+	if level_name == "hub" and States.hub_transported:
+		current_level.set_player_hub_position(player)
+	else:
+		current_level.set_player_position(player)
 	_set_level(current_level)
 	
 static func get_instance() -> LevelManager:

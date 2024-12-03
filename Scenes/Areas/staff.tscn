@@ -1,7 +1,7 @@
 [gd_scene load_steps=34 format=4 uid="uid://ct063oknl1w3i"]
 
 [ext_resource type="Texture2D" uid="uid://lh1l1t7vx5wt" path="res://Assets/Builder/walls.png" id="1_5frbe"]
-[ext_resource type="Script" path="res://Scripts/Commons/level.gd" id="1_30pmx"]
+[ext_resource type="Script" path="res://Scripts/Areas/staff.gd" id="1_wyisp"]
 [ext_resource type="Texture2D" uid="uid://ctryrlk1rua64" path="res://Assets/Builder/floors.png" id="2_a2456"]
 [ext_resource type="PackedScene" uid="uid://bdoi0gcxvsmjj" path="res://Scenes/Objects/tv.tscn" id="2_xjn4m"]
 [ext_resource type="PackedScene" uid="uid://x64jh1m6wqk" path="res://Scenes/Objects/shower.tscn" id="3_ivx7v"]
@@ -3303,7 +3303,7 @@ size = Vector2(25, 93)
 
 [node name="Staff" type="Node2D" node_paths=PackedStringArray("player_initial_position_marker2D")]
 position = Vector2(1, 1)
-script = ExtResource("1_30pmx")
+script = ExtResource("1_wyisp")
 player_initial_position_marker2D = NodePath("Marker2D")
 
 [node name="TV" parent="." node_paths=PackedStringArray("event_controller") instance=ExtResource("2_xjn4m")]
