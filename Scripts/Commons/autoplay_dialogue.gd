@@ -8,8 +8,11 @@ signal dialogue_start_activate
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String = "start"
 @export var auto_remove: bool = true
+@export var dialogue_name: String
 
 func _ready() -> void:
+	if States.killed_dialogues.has(dialogue_name):
+		queue_free()
 	DialogueManager.connect("dialogue_ended", Callable(self, "_on_dialogue_closed"))
 
 
@@ -29,6 +32,7 @@ func _on_dialogue_closed(resource: DialogueResource) -> void:
 	# let player move
 	get_tree().get_first_node_in_group("Player").set_player_paused(false)
 	if auto_remove:
+			States.killed_dialogues.append(dialogue_name)
 			queue_free()
 	
 func _on_body_entered(body: Node2D) -> void:

@@ -11,3 +11,6 @@ var hub_transported = false
 
 # corridor variables
 var has_access_card = false
+
+# autoplay variables
+var killed_dialogues: Array = []

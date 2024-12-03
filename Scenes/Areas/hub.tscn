@@ -3490,6 +3490,7 @@ numbers_panel = ExtResource("17_5t0m4")
 position = Vector2(92, 626)
 dialogue_resource = ExtResource("20_4kumh")
 dialogue_start = "first"
+dialogue_name = "first_lore"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FirstLore"]
 shape = SubResource("CircleShape2D_maw50")
