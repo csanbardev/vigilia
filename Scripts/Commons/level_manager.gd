@@ -43,9 +43,12 @@ func _get_current_level() -> Level:
 	return current_level
 	
 func _set_level(level: Level):
+	call_deferred("_deferred_set_level", level)
+	
+func _deferred_set_level(level: Level):
 	add_child(level)
 	current_level = level
-
+	
 func _get_level_instance_by_key(level_name: String):
 	var path = "res://Scenes/Areas/%s.tscn" % level_name  # Construye la ruta al archivo
 	var scene_resource = load(path)  # Carga el recurso de la escena
