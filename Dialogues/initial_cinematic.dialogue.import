@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://biiaphw35kqvk"
+path="res://.godot/imported/initial_cinematic.dialogue-4b6a354a857706b269d8f5b3107c5ef5.tres"
+
+[deps]
+
+source_file="res://Dialogues/initial_cinematic.dialogue"
+dest_files=["res://.godot/imported/initial_cinematic.dialogue-4b6a354a857706b269d8f5b3107c5ef5.tres"]
+
+[params]
+
+defaults=true

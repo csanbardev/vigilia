@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq35v8gjks6vp"]
+
+[ext_resource type="Script" path="res://Scripts/initial_cinematic.gd" id="1_cfk6o"]
+[ext_resource type="Resource" uid="uid://biiaphw35kqvk" path="res://Dialogues/initial_cinematic.dialogue" id="2_fvoyo"]
+
+[sub_resource type="Curve" id="Curve_l77mu"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_j8fsp"]
+curve = SubResource("Curve_l77mu")
+
+[node name="InitialCinematic" type="Node2D"]
+script = ExtResource("1_cfk6o")
+dialogue_resource = ExtResource("2_fvoyo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1154.0
+offset_bottom = 646.0
+texture = SubResource("CurveTexture_j8fsp")
