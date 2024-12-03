@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_gvhx6"]
 [ext_resource type="Script" path="res://Scripts/canvas_modulate.gd" id="3_h3hw8"]
 [ext_resource type="Script" path="res://Scripts/Commons/level_manager.gd" id="5_8a202"]
-[ext_resource type="PackedScene" uid="uid://bihnurei6ba5y" path="res://Scenes/Areas/hub.tscn" id="6_al652"]
+[ext_resource type="PackedScene" uid="uid://du7136rtorqc8" path="res://Scenes/Areas/corridor.tscn" id="6_464vt"]
 [ext_resource type="AudioStream" uid="uid://djlee5f4dmith" path="res://Assets/Sounds/Music/Ambience_haunting_2.ogg" id="7_sq54x"]
 
 [node name="Level01" type="Node2D"]
@@ -28,7 +28,7 @@ script = ExtResource("3_h3hw8")
 script = ExtResource("5_8a202")
 player = NodePath("../Player")
 
-[node name="Hub" parent="LevelManager" instance=ExtResource("6_al652")]
+[node name="Corridor" parent="LevelManager" instance=ExtResource("6_464vt")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_sq54x")

@@ -8,3 +8,6 @@ var exit_code : Array = [2, 4, 5, 8]
 
 # level transporter variables
 var hub_transported = false
+
+# corridor variables
+var has_access_card = false

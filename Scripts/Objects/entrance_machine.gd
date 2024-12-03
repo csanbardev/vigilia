@@ -8,7 +8,8 @@ var is_door_open:bool = false
 func _process(delta: float) -> void:
 	if is_player_in_path and Input.is_action_just_pressed("interact") and not is_door_open:
 		if check_object():
-			$EntranceMachineTip.queue_free()
+			States.has_access_card = true
+			#$EntranceMachineTip.queue_free()
 			clear_object()
 			$PathBlockedCollision.disabled = true
 			$AnimatedSprite2D.play("Toggle")

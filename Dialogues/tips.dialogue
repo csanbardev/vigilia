@@ -1,4 +1,6 @@
 ~ access_card
+if has_access_card:
+	=> access_granted
 {{character_name}}: Necesito la tarjeta de acceso para pasar.
 => END
 
@@ -7,3 +9,7 @@
 {{character_name}}: Debería poder pasar por aquí, pero la cuerda es muy alta.
 {{character_name}}: Si no estuviera malo de las rodillas... aims.
 => END 
+
+~ access_granted
+{{character_name}}: Bien, se ha abierto.
+=> END!
