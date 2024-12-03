@@ -1,16 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmhpifn6fg7s6"]
+[gd_scene load_steps=2 format=3 uid="uid://dmhpifn6fg7s6"]
 
-[ext_resource type="AudioStream" uid="uid://waqiqs6hh0sq" path="res://Assets/Sounds/Music/Cave Ambience_Pitched Drips.ogg" id="1_g7pdm"]
-[ext_resource type="AudioStream" uid="uid://diiq0twx0tn7" path="res://Assets/Sounds/Music/Crying_moaning_ambience.ogg" id="2_u6hqp"]
+[ext_resource type="AudioStream" uid="uid://df8endfgj4exh" path="res://Assets/Sounds/Music/the_field_of_dreams.mp3" id="1_ulwww"]
 
 [node name="MenuMusic" type="Node"]
 
 [node name="MainMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_g7pdm")
+stream = ExtResource("1_ulwww")
 autoplay = true
 parameters/looping = false
-
-[node name="SecondaryMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_u6hqp")
-autoplay = true
-parameters/looping = true
