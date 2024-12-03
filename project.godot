@@ -25,6 +25,10 @@ MenuMusic="*res://Scenes/menu_music.tscn"
 
 general/states=["States"]
 
+[display]
+
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
