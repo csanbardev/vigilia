@@ -1,26 +1,26 @@
 ~ tv_start
-{{character_name}}: Qué pinta un televisor aquí. 
-{{character_name}}: ¿Debería apagarlo?.
+{{character_name}}: Era la primera vez que veía un televisor allí. ¿Podía ser tuyo, {{player_name}}?
+{{character_name}}: Me preguntaba si debía apagarlo.
 - Apagar
 	=> tv_not_off
 - Dejarlo => END
 => END
 
 ~ tv_not_off
-{{character_name}}: Pues... no se apaga. Qué raro.
+{{character_name}}: Pulsé el botón y me ignoró, como todo el mundo... Era extraño.
 => END
 
 ~ tv_new_start
-{{character_name}}: No veo que haya cambiado nada.
-{{character_name}}: Quizás debería cargármelo
+{{character_name}}: Por más que lo mirara, nada cambiaba.
+{{character_name}}: Me planteé si valía la pena romperlo.
 - Romper
 	
 	if has_tv_object:
-		{{character_name}}: No ha sido la idea más elegante...
-		{{character_name}}: Pero quizás este cristal me sirva.
+		{{character_name}}: Admito que no fue la idea más elegante..
+		{{character_name}}: Da igual. Aquel trozo de cristal me serviría bien.
 		set break_tv = true
 	else:
-		{{character_name}}: Si tuviera algo para romperlo... 
+		{{character_name}}: No llevaba nada con qué romperlo... 
 - Mejor no
-	{{character_name}}: Me podría hacer daño.
+	{{character_name}}: Solo un loco pensaría en romper un televisor ajeno.
 => END
