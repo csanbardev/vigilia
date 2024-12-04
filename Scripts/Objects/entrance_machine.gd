@@ -5,7 +5,7 @@ var is_door_open:bool = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_player_in_path and Input.is_action_just_pressed("interact") and not is_door_open:
 		if check_object():
 			States.has_access_card = true

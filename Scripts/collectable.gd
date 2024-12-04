@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and is_player_on_area:
 		var collectedItems = get_tree().current_scene.get_node("Player").get_node("CollectedItems")
 		collectedItems.add_item(item)

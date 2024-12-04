@@ -12,7 +12,7 @@ func _ready() -> void:
 	DialogueManager.connect("dialogue_ended", Callable(self, "_on_dialogue_closed"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("interact") and is_player_on_area and !dialogue_start_flag:
 		get_tree().get_first_node_in_group("Player").set_player_paused(true)
@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 			dialogue_start_flag = true
 			emit_signal("dialogue_start_activate")
 
-func _on_dialogue_closed(resource: DialogueResource) -> void:
+func _on_dialogue_closed(_resource: DialogueResource) -> void:
 	dialogue_start_flag = false
 	# let player move
 	get_tree().get_first_node_in_group("Player").set_player_paused(false)

@@ -10,7 +10,7 @@ func _ready() -> void:
 	$FlashLight.energy = 1.0
 	$FlashLight.visible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# avoid flashlight move when player cannot move
 	if not can_move:
 		return  
