@@ -54,4 +54,16 @@ placeholder_text = "Artorias"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_xeu14")]
 
+[node name="Acept" type="Button" parent="."]
+offset_left = 513.0
+offset_top = 384.0
+offset_right = 591.0
+offset_bottom = 418.0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_cbx3m")
+theme_override_font_sizes/font_size = 32
+text = "Aceptar
+"
+
 [connection signal="text_submitted" from="Name" to="." method="_on_name_text_submitted"]
+[connection signal="pressed" from="Acept" to="." method="_on_acept_pressed"]
