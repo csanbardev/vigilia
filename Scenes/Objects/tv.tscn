@@ -85,3 +85,4 @@ shape = SubResource("CircleShape2D_ccpvu")
 
 [node name="TVStaticSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_rpqi2")
+parameters/looping = true
