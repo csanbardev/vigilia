@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://ct063oknl1w3i"]
+[gd_scene load_steps=46 format=4 uid="uid://ct063oknl1w3i"]
 
 [ext_resource type="Texture2D" uid="uid://lh1l1t7vx5wt" path="res://Assets/Builder/walls.png" id="1_5frbe"]
 [ext_resource type="Script" path="res://Scripts/Areas/staff.gd" id="1_wyisp"]
@@ -25,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://bn7sco8lk6igh" path="res://Dialogues/lore/staff/locker_staff_diary.dialogue" id="22_yw60x"]
 [ext_resource type="Resource" uid="uid://bx17r17q3wmlj" path="res://Dialogues/lore/staff/first_staff.dialogue" id="23_cxyw0"]
 [ext_resource type="Resource" uid="uid://bu03stsycpsdp" path="res://Dialogues/lore/staff/lockers_lore.dialogue" id="25_n7rmx"]
+[ext_resource type="Texture2D" uid="uid://bawfkbg724x14" path="res://Assets/Museum/Objects/Staff/Bathroom_Singles_48x48_54.png" id="26_cul2n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jinnf"]
 texture = ExtResource("2_a2456")
@@ -3319,6 +3320,9 @@ radius = 20.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_616k4"]
 size = Vector2(524, 33)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4i4u"]
+size = Vector2(40, 101)
+
 [node name="Staff" type="Node2D" node_paths=PackedStringArray("player_initial_position_marker2D")]
 position = Vector2(1, 1)
 script = ExtResource("1_wyisp")
@@ -3498,3 +3502,13 @@ dialogue_name = "lockers_lore"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lore/LockersLore"]
 position = Vector2(73, 6.5)
 shape = SubResource("RectangleShape2D_616k4")
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="Bath" type="Sprite2D" parent="Objects"]
+position = Vector2(600, -340)
+texture = ExtResource("26_cul2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Bath"]
+position = Vector2(1, -6.5)
+shape = SubResource("RectangleShape2D_q4i4u")
