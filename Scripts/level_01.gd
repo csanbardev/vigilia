@@ -1,4 +1,4 @@
 extends Node2D
 
 func _ready() -> void:
-	MenuMusic.queue_free()
+	MenuMusic.stop()

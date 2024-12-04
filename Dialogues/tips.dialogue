@@ -1,7 +1,8 @@
 ~ access_card
 if has_access_card:
 	=> access_granted
-{{character_name}}: Necesito la tarjeta de acceso para pasar.
+{{character_name}}: Pese a todo, el torno funcionaba. Sin la tarjeta de acceso, estaba atrapado.
+{{character_name}}: Aunque... visto con perspectiva... estaba mejor allí dentro.
 => END
 
 ~ pass_blocked
@@ -11,11 +12,11 @@ if has_access_card:
 => END 
 
 ~ access_granted
-{{character_name}}: Bien, se ha abierto.
+{{character_name}}: El torno se abrió.
 => END
 
 ~ hub_door
-{{character_name}}: La puerta estaba bloqueada. 
+{{character_name}}: La puerta estaba bloqueada. Fuera no veía a nadie.
 => END
 
 ~ rope_barrier1

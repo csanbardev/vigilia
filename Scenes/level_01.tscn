@@ -32,6 +32,6 @@ player = NodePath("../Player")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_sq54x")
-volume_db = -10.895
+volume_db = -7.924
 autoplay = true
 parameters/looping = true

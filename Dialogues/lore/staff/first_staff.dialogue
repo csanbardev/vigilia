@@ -1,5 +1,5 @@
 ~ first_staff
-{{character_name}}: La sala de empleado. Aquí pasábamos mucho tiempo tú y yo, {{player_name}}.
+{{character_name}}: La sala de empleados. Aquí pasábamos mucho tiempo tú y yo, {{player_name}}.
 {{character_name}}: ¿No lo recuerdas? Supongo que no quieres hablar de ello... Y si te digo la verdad...
 {{character_name}}: No importa.
 => END

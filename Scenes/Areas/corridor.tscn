@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://du7136rtorqc8"]
+[gd_scene load_steps=28 format=4 uid="uid://du7136rtorqc8"]
 
 [ext_resource type="PackedScene" uid="uid://kbervirxfmvx" path="res://Scenes/entrance_machine.tscn" id="1_70wm6"]
 [ext_resource type="Script" path="res://Scripts/Areas/corridor.gd" id="1_ig2v8"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dyuljbdixfa6n" path="res://Assets/Museum/Objects/Corridor/Museum_Singles_48x48_391.png" id="11_qvr3x"]
 [ext_resource type="Texture2D" uid="uid://cp8gqqjpbohur" path="res://Assets/Museum/Objects/Corridor/Living_Room_Singles_48x48_17.png" id="12_jr4p6"]
 [ext_resource type="Texture2D" uid="uid://dndh3a41ubee4" path="res://Assets/Museum/Objects/Corridor/Museum_Singles_48x48_31.png" id="14_t51xi"]
+[ext_resource type="Resource" uid="uid://dv1oseemtdiwr" path="res://Dialogues/lore/corridor/access_card_lore.dialogue" id="15_ghnps"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knpry"]
 size = Vector2(29, 138)
@@ -2121,6 +2122,9 @@ size = Vector2(38, 90)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bhgwi"]
 size = Vector2(50.5, 26)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_53dla"]
+radius = 28.0
+
 [node name="Corridor" type="Node2D" node_paths=PackedStringArray("player_initial_position_marker2D")]
 script = ExtResource("1_ig2v8")
 player_initial_position_marker2D = NodePath("InitialPosition")
@@ -2200,3 +2204,13 @@ shape = SubResource("RectangleShape2D_bhgwi")
 [node name="MuseumSingles48x4831" type="Sprite2D" parent="Objects"]
 position = Vector2(215, 31)
 texture = ExtResource("14_t51xi")
+
+[node name="AccessCardLore" parent="." instance=ExtResource("10_bcdky")]
+position = Vector2(62, 88)
+dialogue_resource = ExtResource("15_ghnps")
+dialogue_start = "access_card_lore"
+dialogue_name = "access_card_lore"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AccessCardLore"]
+position = Vector2(7, 29)
+shape = SubResource("CircleShape2D_53dla")

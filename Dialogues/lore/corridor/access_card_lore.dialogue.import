@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://dv1oseemtdiwr"
+path="res://.godot/imported/access_card_lore.dialogue-b6eae0abe79711bdf8bb3ba41ec4033e.tres"
+
+[deps]
+
+source_file="res://Dialogues/lore/corridor/access_card_lore.dialogue"
+dest_files=["res://.godot/imported/access_card_lore.dialogue-b6eae0abe79711bdf8bb3ba41ec4033e.tres"]
+
+[params]
+
+defaults=true

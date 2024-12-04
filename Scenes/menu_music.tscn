@@ -2,9 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://df8endfgj4exh" path="res://Assets/Sounds/Music/the_field_of_dreams.mp3" id="1_ulwww"]
 
-[node name="MenuMusic" type="Node"]
-
-[node name="MainMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="MenuMusic" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_ulwww")
 autoplay = true
 parameters/looping = false
