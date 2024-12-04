@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://bx17r17q3wmlj"
+path="res://.godot/imported/first_staff.dialogue-3b278bb118b89b1328e35e9b3a765ce5.tres"
+
+[deps]
+
+source_file="res://Dialogues/lore/staff/first_staff.dialogue"
+dest_files=["res://.godot/imported/first_staff.dialogue-3b278bb118b89b1328e35e9b3a765ce5.tres"]
+
+[params]
+
+defaults=true

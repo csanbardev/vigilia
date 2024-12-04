@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://bu03stsycpsdp"
+path="res://.godot/imported/lockers_lore.dialogue-0847730fa8e3cebb7f631adfc10bd0a4.tres"
+
+[deps]
+
+source_file="res://Dialogues/lore/staff/lockers_lore.dialogue"
+dest_files=["res://.godot/imported/lockers_lore.dialogue-0847730fa8e3cebb7f631adfc10bd0a4.tres"]
+
+[params]
+
+defaults=true

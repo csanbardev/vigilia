@@ -28,12 +28,15 @@ func init_dialogue () -> void:
 		
 
 func _on_dialogue_closed(resource: DialogueResource) -> void:
+	if dialogue_resource != resource:
+		return
+	
 	dialogue_start_flag = false
 	# let player move
 	get_tree().get_first_node_in_group("Player").set_player_paused(false)
 	if auto_remove:
-			States.killed_dialogues.append(dialogue_name)
-			queue_free()
+		States.killed_dialogues.append(dialogue_name)
+		queue_free()
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

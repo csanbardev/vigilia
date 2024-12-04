@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://bn7sco8lk6igh"
+path="res://.godot/imported/locker_staff_diary.dialogue-6e4d07a108ede88ce4789616bf81a8a8.tres"
+
+[deps]
+
+source_file="res://Dialogues/lore/staff/locker_staff_diary.dialogue"
+dest_files=["res://.godot/imported/locker_staff_diary.dialogue-6e4d07a108ede88ce4789616bf81a8a8.tres"]
+
+[params]
+
+defaults=true

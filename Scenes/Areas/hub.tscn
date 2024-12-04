@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://bihnurei6ba5y"]
+[gd_scene load_steps=57 format=4 uid="uid://bihnurei6ba5y"]
 
 [ext_resource type="Script" path="res://Scripts/Areas/hub.gd" id="1_3qe8y"]
 [ext_resource type="Texture2D" uid="uid://c2syetm6hglfg" path="res://Assets/Museum/Objects/Hub/animated_hospital_surgery_door_48x48.png" id="2_dwjqn"]
@@ -19,10 +19,13 @@
 [ext_resource type="PackedScene" uid="uid://bw0nlmqlhwvn" path="res://Scenes/Objects/hub_computer.tscn" id="16_yav2r"]
 [ext_resource type="PackedScene" uid="uid://2wjbywmpv4ca" path="res://Scenes/UI/numbers_panel.tscn" id="17_5t0m4"]
 [ext_resource type="PackedScene" uid="uid://b3vb0h4y2j0b2" path="res://Scenes/Commons/autoplay_dialogue.tscn" id="19_rxeye"]
-[ext_resource type="Resource" uid="uid://1h3fiuhqr4to" path="res://Dialogues/lore/hub.dialogue" id="20_4kumh"]
 [ext_resource type="PackedScene" uid="uid://b171we7ms7inw" path="res://Scenes/Commons/temporal_sounds.tscn" id="21_0fc0m"]
 [ext_resource type="AudioStream" uid="uid://c58p51cp421hx" path="res://Assets/Sounds/Effects/robotic_hiss_2.ogg" id="22_qu6w2"]
 [ext_resource type="AudioStream" uid="uid://dm8xytlspj6yk" path="res://Assets/Sounds/Effects/Breath_out_deep.ogg" id="23_aswlr"]
+[ext_resource type="PackedScene" uid="uid://brk3g5jcynxnb" path="res://Scenes/Commons/tip.tscn" id="24_wq7m7"]
+[ext_resource type="Resource" uid="uid://b55kur4jnmwp6" path="res://Dialogues/tips.dialogue" id="25_7u4md"]
+[ext_resource type="Resource" uid="uid://ljciolehy3ov" path="res://Dialogues/lore/hub/first.dialogue" id="25_ur100"]
+[ext_resource type="Resource" uid="uid://cdl00fiq080kc" path="res://Dialogues/lore/hub/lore1.dialogue" id="26_xqdyj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h3aqs"]
 texture = ExtResource("3_5xvqm")
@@ -3377,13 +3380,25 @@ size = Vector2(174, 21.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhq40"]
 size = Vector2(91, 29)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_maw50"]
-radius = 21.095
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7f48"]
 size = Vector2(46, 107)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smd5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w6ol"]
+size = Vector2(94, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgwgj"]
+size = Vector2(187, 42)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n6awk"]
+radius = 40.6079
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_maw50"]
+radius = 21.095
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ukhty"]
+radius = 41.0122
 
 [node name="Hub" type="Node2D" node_paths=PackedStringArray("player_initial_position_marker2D", "player_hub_position_marker2D")]
 script = ExtResource("1_3qe8y")
@@ -3486,15 +3501,6 @@ z_index = 30
 position = Vector2(385, 401)
 numbers_panel = ExtResource("17_5t0m4")
 
-[node name="FirstLore" parent="." instance=ExtResource("19_rxeye")]
-position = Vector2(92, 626)
-dialogue_resource = ExtResource("20_4kumh")
-dialogue_start = "first"
-dialogue_name = "first_lore"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstLore"]
-shape = SubResource("CircleShape2D_maw50")
-
 [node name="TemporalSounds" type="Node" parent="."]
 
 [node name="Robotic" parent="TemporalSounds" instance=ExtResource("21_0fc0m")]
@@ -3511,3 +3517,53 @@ sound = ExtResource("23_aswlr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TemporalSounds/Breath"]
 shape = SubResource("CircleShape2D_smd5q")
+
+[node name="Tips" type="Node" parent="."]
+
+[node name="RopeBarrier2" parent="Tips" instance=ExtResource("24_wq7m7")]
+position = Vector2(331, 1098)
+dialogue_resource = ExtResource("25_7u4md")
+dialogue_start = "rope_barrier2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tips/RopeBarrier2"]
+position = Vector2(4, 10.5)
+shape = SubResource("RectangleShape2D_8w6ol")
+
+[node name="RopeBarrier1" parent="Tips" instance=ExtResource("24_wq7m7")]
+position = Vector2(129, 884)
+dialogue_resource = ExtResource("25_7u4md")
+dialogue_start = "rope_barrier1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tips/RopeBarrier1"]
+position = Vector2(16.5, 30)
+shape = SubResource("RectangleShape2D_hgwgj")
+
+[node name="ExitDoorTip" parent="Tips" instance=ExtResource("24_wq7m7")]
+position = Vector2(370, 111)
+dialogue_resource = ExtResource("25_7u4md")
+dialogue_start = "hub_door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tips/ExitDoorTip"]
+position = Vector2(1, 18)
+shape = SubResource("CircleShape2D_n6awk")
+
+[node name="Lore" type="Node" parent="."]
+
+[node name="FirstLore" parent="Lore" instance=ExtResource("19_rxeye")]
+position = Vector2(92, 626)
+dialogue_resource = ExtResource("25_ur100")
+dialogue_start = "first"
+dialogue_name = "first_hub"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lore/FirstLore"]
+shape = SubResource("CircleShape2D_maw50")
+
+[node name="Lore1" parent="Lore" instance=ExtResource("19_rxeye")]
+position = Vector2(372, 711)
+dialogue_resource = ExtResource("26_xqdyj")
+dialogue_start = "lore1"
+dialogue_name = "lore1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lore/Lore1"]
+position = Vector2(8, 3)
+shape = SubResource("CircleShape2D_ukhty")

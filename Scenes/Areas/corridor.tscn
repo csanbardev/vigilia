@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://du7136rtorqc8"]
+[gd_scene load_steps=21 format=4 uid="uid://du7136rtorqc8"]
 
 [ext_resource type="PackedScene" uid="uid://kbervirxfmvx" path="res://Scenes/entrance_machine.tscn" id="1_70wm6"]
 [ext_resource type="Script" path="res://Scripts/Areas/corridor.gd" id="1_ig2v8"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://Scripts/Item.gd" id="6_kqp8q"]
 [ext_resource type="Texture2D" uid="uid://c44jxe4y8j1do" path="res://Assets/Museum/Items/access_card.svg" id="7_f5j1h"]
 [ext_resource type="PackedScene" uid="uid://mp8vas13wcda" path="res://Scenes/Commons/level_transporter.tscn" id="9_peh18"]
+[ext_resource type="PackedScene" uid="uid://b3vb0h4y2j0b2" path="res://Scenes/Commons/autoplay_dialogue.tscn" id="10_bcdky"]
+[ext_resource type="Resource" uid="uid://dnm5wlmmotoq4" path="res://Dialogues/lore/corridor/first.dialogue" id="11_6og8g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knpry"]
 size = Vector2(29, 138)
@@ -2107,6 +2109,9 @@ script = ExtResource("6_kqp8q")
 name = "AccessCard"
 texture = ExtResource("7_f5j1h")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fdu3i"]
+radius = 20.3961
+
 [node name="Corridor" type="Node2D" node_paths=PackedStringArray("player_initial_position_marker2D")]
 script = ExtResource("1_ig2v8")
 player_initial_position_marker2D = NodePath("InitialPosition")
@@ -2151,4 +2156,16 @@ position = Vector2(68, 102)
 item = SubResource("Resource_qk72d")
 
 [node name="InitialPosition" type="Marker2D" parent="."]
-position = Vector2(567, 151)
+position = Vector2(217, 159)
+
+[node name="Lore" type="Node" parent="."]
+
+[node name="First" parent="Lore" instance=ExtResource("10_bcdky")]
+position = Vector2(209, 148)
+dialogue_resource = ExtResource("11_6og8g")
+dialogue_start = "first"
+dialogue_name = "first_corridor"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lore/First"]
+position = Vector2(7, 10)
+shape = SubResource("CircleShape2D_fdu3i")

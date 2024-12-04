@@ -89,7 +89,7 @@ interact={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/tips.dialogue", "res://Dialogues/lockers.dialogue", "res://Dialogues/tv.dialogue", "res://Dialogues/lore/hub.dialogue", "res://Dialogues/initial_cinematic.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/tips.dialogue", "res://Dialogues/lockers.dialogue", "res://Dialogues/tv.dialogue", "res://Dialogues/initial_cinematic.dialogue", "res://Dialogues/lore/hub/first.dialogue", "res://Dialogues/lore/hub/lore1.dialogue", "res://Dialogues/lore/corridor/first.dialogue", "res://Dialogues/lore/staff/first_staff.dialogue", "res://Dialogues/lore/staff/locker_staff_diary.dialogue", "res://Dialogues/lore/staff/lockers_lore.dialogue")
 
 [layer_names]
 

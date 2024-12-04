@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://ct063oknl1w3i"]
+[gd_scene load_steps=44 format=4 uid="uid://ct063oknl1w3i"]
 
 [ext_resource type="Texture2D" uid="uid://lh1l1t7vx5wt" path="res://Assets/Builder/walls.png" id="1_5frbe"]
 [ext_resource type="Script" path="res://Scripts/Areas/staff.gd" id="1_wyisp"]
@@ -19,6 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://cghwstdf1oli4" path="res://Assets/Museum/Objects/washing_machine.png" id="17_bn71m"]
 [ext_resource type="PackedScene" uid="uid://kjb1u5buoeyy" path="res://Scenes/Commons/event_controller.tscn" id="18_s1c0k"]
 [ext_resource type="PackedScene" uid="uid://mp8vas13wcda" path="res://Scenes/Commons/level_transporter.tscn" id="19_kts8a"]
+[ext_resource type="PackedScene" uid="uid://brk3g5jcynxnb" path="res://Scenes/Commons/tip.tscn" id="20_2ymm6"]
+[ext_resource type="Resource" uid="uid://b55kur4jnmwp6" path="res://Dialogues/tips.dialogue" id="21_doa4q"]
+[ext_resource type="PackedScene" uid="uid://b3vb0h4y2j0b2" path="res://Scenes/Commons/autoplay_dialogue.tscn" id="22_wvqp3"]
+[ext_resource type="Resource" uid="uid://bn7sco8lk6igh" path="res://Dialogues/lore/staff/locker_staff_diary.dialogue" id="22_yw60x"]
+[ext_resource type="Resource" uid="uid://bx17r17q3wmlj" path="res://Dialogues/lore/staff/first_staff.dialogue" id="23_cxyw0"]
+[ext_resource type="Resource" uid="uid://bu03stsycpsdp" path="res://Dialogues/lore/staff/lockers_lore.dialogue" id="25_n7rmx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jinnf"]
 texture = ExtResource("2_a2456")
@@ -3301,6 +3307,18 @@ radius = 28.0179
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rubmt"]
 size = Vector2(25, 93)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_inets"]
+radius = 22.0227
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcyqp"]
+radius = 19.0263
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8cqta"]
+radius = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_616k4"]
+size = Vector2(524, 33)
+
 [node name="Staff" type="Node2D" node_paths=PackedStringArray("player_initial_position_marker2D")]
 position = Vector2(1, 1)
 script = ExtResource("1_wyisp")
@@ -3397,6 +3415,7 @@ showers = [NodePath("../../Showers/Shower1"), NodePath("../../Showers/Shower2"),
 mirror_position = "right"
 
 [node name="Fog" type="Sprite2D" parent="."]
+visible = false
 z_index = 130
 position = Vector2(668, 28)
 texture = ExtResource("11_613yk")
@@ -3428,3 +3447,54 @@ position = Vector2(5, 165)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransporter"]
 position = Vector2(2.5, 23.5)
 shape = SubResource("RectangleShape2D_rubmt")
+
+[node name="Tips" type="Node" parent="."]
+
+[node name="Locker2" parent="Tips" instance=ExtResource("20_2ymm6")]
+position = Vector2(304, 6)
+dialogue_resource = ExtResource("21_doa4q")
+dialogue_start = "nothing_interested"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tips/Locker2"]
+position = Vector2(5, 16)
+shape = SubResource("CircleShape2D_inets")
+
+[node name="Locker3" parent="Tips" instance=ExtResource("20_2ymm6")]
+position = Vector2(400, 6)
+dialogue_resource = ExtResource("21_doa4q")
+dialogue_start = "nothing_interested"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tips/Locker3"]
+position = Vector2(5, 16)
+shape = SubResource("CircleShape2D_inets")
+
+[node name="Locker1" parent="Tips" instance=ExtResource("20_2ymm6")]
+position = Vector2(257, 19)
+dialogue_resource = ExtResource("22_yw60x")
+dialogue_start = "locker_staff_diary"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tips/Locker1"]
+position = Vector2(2, 8)
+shape = SubResource("CircleShape2D_fcyqp")
+
+[node name="Lore" type="Node" parent="."]
+
+[node name="AutoplayDialogue" parent="Lore" instance=ExtResource("22_wvqp3")]
+position = Vector2(52, 180)
+dialogue_resource = ExtResource("23_cxyw0")
+dialogue_start = "first_staff"
+dialogue_name = "first_staff"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lore/AutoplayDialogue"]
+position = Vector2(6, 14)
+shape = SubResource("CircleShape2D_8cqta")
+
+[node name="LockersLore" parent="Lore" instance=ExtResource("22_wvqp3")]
+position = Vector2(285, 119)
+dialogue_resource = ExtResource("25_n7rmx")
+dialogue_start = "lockers_lore"
+dialogue_name = "lockers_lore"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lore/LockersLore"]
+position = Vector2(73, 6.5)
+shape = SubResource("RectangleShape2D_616k4")

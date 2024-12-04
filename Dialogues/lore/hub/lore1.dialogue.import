@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://cdl00fiq080kc"
+path="res://.godot/imported/lore1.dialogue-204059ec38a7249dc0c2d3399693c054.tres"
+
+[deps]
+
+source_file="res://Dialogues/lore/hub/lore1.dialogue"
+dest_files=["res://.godot/imported/lore1.dialogue-204059ec38a7249dc0c2d3399693c054.tres"]
+
+[params]
+
+defaults=true

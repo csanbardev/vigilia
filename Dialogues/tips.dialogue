@@ -12,4 +12,23 @@ if has_access_card:
 
 ~ access_granted
 {{character_name}}: Bien, se ha abierto.
-=> END!
+=> END
+
+~ hub_door
+{{character_name}}: La puerta estaba bloqueada. 
+=> END
+
+~ rope_barrier1
+{{character_name}}: Aquel camino llevaba a la nueva sala de exposiciones. No sé qué pretendía encontrar allí.
+{{character_name}}: No me veía con fuerzas de saltar la cuerda... Pobre excusa, ¿no crees, {{player_name}}?
+=> END
+
+~ rope_barrier2
+{{character_name}}: La entrada al sótano. Sería un sitio perfecto para un juego de terror.
+{{character_name}}: Ya me lo imagino... Maniquíes, sombras tenebrosas, ruidos de ninguna parte...
+{{character_name}}: Solo haria falta un script "sencillito".
+=> END 
+
+~ nothing_interested
+{{character_name}}: No parecía haber nada de interés.
+=> END
